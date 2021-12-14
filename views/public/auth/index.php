@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../../../helpers/uriHelper.php";
 require_once __DIR__ . "/../../../middleware/sessionMiddleware.php";
 require_once __DIR__ . "/../../../controllers/AuthController.php";
-sessionMiddleware::checkSession();
+sessionMiddleware::isLoggedIn();
 ?>
 
 <!DOCTYPE html>
@@ -16,12 +16,12 @@ sessionMiddleware::checkSession();
     <meta name="description" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
     <meta property="og:title" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
     <meta property="og:description" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
-    <meta property="og:image" content="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>" />
+    <meta property="og:image" content="<?= $uriHelper->assetUrl("images/logo_1.png") ?>" />
     <title>MalangSnack - Gudangnya oleh-oleh khas Malang</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>">
-    <link href="<?= $uriHelper->baseUrl("assets/vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
-    <link href="<?= $uriHelper->baseUrl("assets/css/style.css") ?>" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $uriHelper->assetUrl("images/logo_1.png") ?>">
+    <link href="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
+    <link href="<?= $uriHelper->assetUrl("css/style.css") ?>" rel="stylesheet">
 
 </head>
 
@@ -35,7 +35,7 @@ sessionMiddleware::checkSession();
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="index.html"><img src="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>" alt=""></a>
+                                        <a href="<?= $uriHelper->baseUrl('index.php?page=main') ?>"><img src="<?= $uriHelper->assetUrl("images/logo_1.png") ?>" alt=""></a>
                                     </div>
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                     <form method="POST">
@@ -63,7 +63,7 @@ sessionMiddleware::checkSession();
         </div>
     </div>
 
-    <script src="<?= $uriHelper->baseUrl("assets/vendor/sweetalert2/dist/sweetalert2.min.js") ?>"></script>
+    <script src="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.js") ?>"></script>
 </body>
 
 <?php

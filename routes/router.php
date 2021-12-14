@@ -32,13 +32,37 @@ class Router
                     require_once __DIR__ . $this->auth . "register.php";
                     break;
                 case "dashboard":
-                    require_once __DIR__ . $this->loggedIn . "index.php";
+                    (isset($_GET['content']) ? $this->dashboardRoute($_GET['content']) : $this->dashboardRoute("main"));
                     break;
                 default:
                     require_once __DIR__ . $this->errors . "404.php";
             }
         } else {
             header('location: index.php?page=main');
+        }
+    }
+
+    public function dashboardRoute(string $content): void
+    {
+        switch ($content) {
+            case "main":
+                require_once __DIR__ . $this->loggedIn . "index.php";
+                break;
+            case "product":
+                require_once __DIR__ . $this->auth . "index.php";
+                break;
+            case "register":
+                require_once __DIR__ . $this->auth . "register.php";
+                break;
+            case "profile":
+                require_once __DIR__ . $this->loggedIn . "profile.php";
+                break;
+
+            case "logout":
+                require_once __DIR__ . $this->loggedIn . "logout.php";
+                break;
+            default:
+                require_once __DIR__ . $this->errors . "404.php";
         }
     }
 }

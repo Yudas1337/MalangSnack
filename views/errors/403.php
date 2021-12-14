@@ -12,11 +12,11 @@ require_once __DIR__ . "/../../helpers/uriHelper.php";
     <meta name="description" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
     <meta property="og:title" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
     <meta property="og:description" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
-    <meta property="og:image" content="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>" />
+    <meta property="og:image" content="<?= $uriHelper->assetUrl("images/logo_1.png") ?>" />
     <title>403 Forbidden</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>">
-    <link href="<?= $uriHelper->baseUrl("assets/css/style.css") ?>" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $uriHelper->assetUrl("images/logo_1.png") ?>">
+    <link href="<?= $uriHelper->assetUrl("css/style.css") ?>" rel="stylesheet">
 
 </head>
 

@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 class sessionMiddleware
 {
     public static function adminSession(): void
@@ -19,7 +17,15 @@ class sessionMiddleware
         }
     }
 
-    public static function checkSession(): void
+    public static function isNotLoggedIn(): void
+    {
+        if (!isset($_SESSION['role'])) {
+            echo "Anda tidak punya hak akses";
+            die;
+        }
+    }
+
+    public static function isLoggedIn(): void
     {
         if (isset($_SESSION['role'])) {
             header("location: index.php?page=dashboard");

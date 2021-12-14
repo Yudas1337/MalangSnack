@@ -10,7 +10,7 @@ class uriHelper
 {
     private $base_url = "http://localhost/web/";
 
-    public function baseUrl($url = NULL): string
+    public function baseUrl(string $url = NULL): string
     {
         return $this->base_url . $url;
     }
@@ -18,6 +18,11 @@ class uriHelper
     public function getBaseUrl(): string
     {
         return $this->base_url;
+    }
+
+    public function assetUrl(string $url = NULL): string
+    {
+        return $this->base_url . "assets/" . $url;
     }
 }
 

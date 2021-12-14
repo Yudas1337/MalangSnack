@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . "/../models/AuthModel.php";
 require_once __DIR__ . "/../helpers/formHelper.php";
 
@@ -32,7 +31,7 @@ class AuthController
 
         $this->authModel->_doLogin($email, $password);
 
-        alertHelper::successAndRedirect("Berhasil login. selamat datang " . $_SESSION['name'], "index.php?page=dashboard");
+        alertHelper::successAndRedirect("Berhasil login. selamat datang " . $_SESSION['name'], "index.php?page=dashboard&content=main");
     }
 
     /**
