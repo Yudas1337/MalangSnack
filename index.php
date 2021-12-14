@@ -1,5 +1,16 @@
 <?php
 
-require_once __DIR__ . "/route.php";
+/*
+|--------------------------------------------------------------------------
+| Register the autoload Routing
+|--------------------------------------------------------------------------
+|
+| autoload routing from file route.php
+| Developed By : Yudas Malabi
+|
+*/
 
-new Route();
+
+require_once __DIR__ . "/routes/router.php";
+
+new Router();

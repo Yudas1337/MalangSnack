@@ -1,25 +1,46 @@
 <?php
-require_once __DIR__ . "/../configs/Config.php";
+session_start();
 require_once __DIR__ . "/../models/AuthModel.php";
+require_once __DIR__ . "/../helpers/formHelper.php";
 
-class AuthController extends Config
+class AuthController
 {
     private $authModel;
+    private $formHelper;
 
+    /**
+     * Define an AuthController constructor .
+     */
     function __construct()
     {
-        parent::__construct();
         $this->authModel = new AuthModel();
-    }
-    public function login()
-    {
-        echo "<script>
-        swal('Gotcha!','Berhasil Login','success')
-        </script>";
-        return true;
+        $this->formHelper = new formHelper();
     }
 
-    public function register()
+    /**
+     * Define login method.
+     *
+     * @return void
+     */
+    public function login(): void
+    {
+        formHelper::isNotNull(["email", "password"]);
+        formHelper::validEmail($_POST['email']);
+
+        $email = $this->formHelper->sanitizeInput($_POST['email']);
+        $password = $this->formHelper->sanitizeInput($_POST['password']);
+
+        $this->authModel->_doLogin($email, $password);
+
+        alertHelper::successAndRedirect("Berhasil login. selamat datang " . $_SESSION['name'], "index.php?page=dashboard");
+    }
+
+    /**
+     * Define register method.
+     *
+     * @return void
+     */
+    public function register(): void
     {
     }
 }

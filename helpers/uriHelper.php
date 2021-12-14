@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Define setter & getter for site base url
+ *
+ * @return string
+ */
+
 class uriHelper
 {
     private $base_url = "http://localhost/web/";
@@ -15,4 +21,4 @@ class uriHelper
     }
 }
 
-$helper = new uriHelper();
+$uriHelper = new uriHelper();

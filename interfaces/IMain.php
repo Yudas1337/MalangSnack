@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Define create, read, update, delete interface.
+ *
+ * @return void
+ * @return array
+ */
+
 interface Main
 {
     public function show(): array;

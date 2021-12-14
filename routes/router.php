@@ -1,10 +1,16 @@
 <?php
 
-class Route
+/**
+ * Define site routing method.
+ *
+ * @return void
+ */
+class Router
 {
-    private $public = "/views/public/";
-    private $auth = "/views/public/auth/";
-    private $errors = "/views/errors/";
+    private $public = "/../views/public/home/";
+    private $auth = "/../views/public/auth/";
+    private $errors = "/../views/errors/";
+    private $loggedIn = "/../views/public/dashboard/";
 
     function __construct()
     {
@@ -25,7 +31,9 @@ class Route
                 case "register":
                     require_once __DIR__ . $this->auth . "register.php";
                     break;
-
+                case "dashboard":
+                    require_once __DIR__ . $this->loggedIn . "index.php";
+                    break;
                 default:
                     require_once __DIR__ . $this->errors . "404.php";
             }

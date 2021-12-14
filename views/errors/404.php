@@ -12,11 +12,11 @@ require_once __DIR__ . "/../../helpers/uriHelper.php";
     <meta name="description" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
     <meta property="og:title" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
     <meta property="og:description" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
-    <meta property="og:image" content="<?= $helper->baseUrl("assets/images/logo_1.png") ?>" />
+    <meta property="og:image" content="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>" />
     <title>404 Page not found</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $helper->baseUrl("assets/images/logo_1.png") ?>">
-    <link href="<?= $helper->baseUrl("assets/css/style.css") ?>" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>">
+    <link href="<?= $uriHelper->baseUrl("assets/css/style.css") ?>" rel="stylesheet">
 
 </head>
 
@@ -30,7 +30,7 @@ require_once __DIR__ . "/../../helpers/uriHelper.php";
                         <h4><i class="fa fa-exclamation-triangle text-warning"></i> Page Not Found</h4>
                         <p>Halaman yang anda cari tidak ditemukan atau mungkin sudah dihapus</p>
                         <div>
-                            <a class="btn btn-success" href="<?= $helper->baseUrl("index.php?page=main") ?>">Kembali ke home</a>
+                            <a class="btn btn-success" href="<?= $uriHelper->baseUrl("index.php?page=main") ?>">Kembali ke home</a>
                         </div>
                     </div>
                 </div>

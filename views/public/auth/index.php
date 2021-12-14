@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . "/../../../helpers/uriHelper.php";
+require_once __DIR__ . "/../../../middleware/sessionMiddleware.php";
 require_once __DIR__ . "/../../../controllers/AuthController.php";
+sessionMiddleware::checkSession();
 ?>
 
 <!DOCTYPE html>
@@ -14,12 +16,12 @@ require_once __DIR__ . "/../../../controllers/AuthController.php";
     <meta name="description" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
     <meta property="og:title" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
     <meta property="og:description" content="MalangSnack - Gudangnya oleh-oleh khas Malang" />
-    <meta property="og:image" content="<?= $helper->baseUrl("assets/images/logo_1.png") ?>" />
+    <meta property="og:image" content="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>" />
     <title>MalangSnack - Gudangnya oleh-oleh khas Malang</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $helper->baseUrl("assets/images/logo_1.png") ?>">
-    <link href="<?= $helper->baseUrl("assets/vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
-    <link href="<?= $helper->baseUrl("assets/css/style.css") ?>" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>">
+    <link href="<?= $uriHelper->baseUrl("assets/vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
+    <link href="<?= $uriHelper->baseUrl("assets/css/style.css") ?>" rel="stylesheet">
 
 </head>
 
@@ -33,24 +35,24 @@ require_once __DIR__ . "/../../../controllers/AuthController.php";
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="index.html"><img src="<?= $helper->baseUrl("assets/images/logo-full.png") ?>" alt=""></a>
+                                        <a href="index.html"><img src="<?= $uriHelper->baseUrl("assets/images/logo_1.png") ?>" alt=""></a>
                                     </div>
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                     <form method="POST">
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" autofocus class="form-control" placeholder="johndoe@example.com" name="email" autocomplete="off">
+                                            <input type="text" autofocus class="form-control" placeholder="johndoe@example.com" name="email" autocomplete="off" value="<?= (isset($_POST['submit']) ? $_POST['email'] : '') ?>">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Password</strong></label>
                                             <input type="password" class="form-control" name="password">
                                         </div>
-                                        <div class="text-center">
+                                        <div class="text-center mt-5">
                                             <button type="submit" name="submit" class="btn btn-success btn-block">Masuk</button>
                                         </div>
                                     </form>
-                                    <div class="new-account mt-4">
-                                        <p>Belum punya akun? <a class="text-success" href="<?= $helper->baseUrl("index.php?page=register") ?>">Daftar</a></p>
+                                    <div class="new-account mt-4 text-center">
+                                        <p>Belum punya akun? <a class="text-success" href="<?= $uriHelper->baseUrl("index.php?page=register") ?>">Daftar</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +63,7 @@ require_once __DIR__ . "/../../../controllers/AuthController.php";
         </div>
     </div>
 
-    <script src="<?= $helper->baseUrl("assets/vendor/sweetalert2/dist/sweetalert2.min.js") ?>"></script>
+    <script src="<?= $uriHelper->baseUrl("assets/vendor/sweetalert2/dist/sweetalert2.min.js") ?>"></script>
 </body>
 
 <?php

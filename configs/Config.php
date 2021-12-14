@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * server configuration.
+ */
+
 class Config
 {
+
+
     private $server = "localhost";
     private $user = "root";
     private $pass = "";
