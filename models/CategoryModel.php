@@ -37,7 +37,7 @@ class CategoryModel extends Config implements IMain
         $this->db->query("INSERT INTO category VALUES (NULL, '$icon', '$name', NOW(), NOW())");
     }
 
-    public function edit(int $id): void
+    public function update(int $id): void
     {
         $name = $this->formHelper->sanitizeInput($_POST['name']);
 

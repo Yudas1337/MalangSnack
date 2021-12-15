@@ -56,7 +56,7 @@ class CategoryController implements IForm
     public function update(int $id): void
     {
         $this->filterForm();
-        $this->categoryModel->edit($id);
+        $this->categoryModel->update($id);
         alertHelper::successAndRedirect("Berhasil update kategori", $this->redirect);
     }
 
