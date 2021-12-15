@@ -20,8 +20,8 @@ require_once __DIR__ . "/../../layouts/dashboard/navbar.php";
                     <span class="nav-text">Produk</span>
                 </a>
                 <ul aria-expanded="true">
-                    <li><a href="index.html" class="mm-active">List Produk</a></li>
-                    <li><a href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=category&menu=list") ?>">Kategori</a></li>
+                    <li><a href="index.html">List Produk</a></li>
+                    <li class="<?= (isset($_GET['content']) && $_GET['content'] == "category" ? "mm-active" : "") ?>"><a class="<?= (isset($_GET['content']) && $_GET['content'] == "category" ? "mm-active" : "") ?>" href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=category&menu=list") ?>">Kategori</a></li>
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

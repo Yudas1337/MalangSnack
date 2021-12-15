@@ -7,10 +7,11 @@
  * @return array
  */
 
-interface Main
+interface IMain
 {
     public function show(): array;
     public function save(): void;
-    public function edit(): void;
-    public function delete(): void;
+    public function edit(int $id): void;
+    public function delete(int $id): void;
+    public function getById(int $id): array;
 }

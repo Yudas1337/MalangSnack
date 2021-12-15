@@ -3,8 +3,6 @@ require_once __DIR__ . "/../../../helpers/uriHelper.php";
 require_once __DIR__ . "/../../../controllers/UserController.php";
 require_once __DIR__ . "/../../../middleware/sessionMiddleware.php";
 
-sessionMiddleware::isNotLoggedIn();
-
 $user = new UserController();
 $getUser = $user->getUser();
 ?>
@@ -25,10 +23,10 @@ $getUser = $user->getUser();
     <link rel="icon" type="image/png" sizes="16x16" href="<?= $uriHelper->assetUrl("images/logo_1.png") ?>">
     <link href="<?= $uriHelper->assetUrl("vendor/jqvmap/css/jqvmap.min.css") ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= $uriHelper->assetUrl("vendor/chartist/css/chartist.min.css") ?>">
+    <link href="<?= $uriHelper->assetUrl("vendor/datatables/css/jquery.dataTables.min.css") ?>" rel="stylesheet">
     <link href="<?= $uriHelper->assetUrl("vendor/bootstrap-select/dist/css/bootstrap-select.min.css") ?>" rel="stylesheet">
     <link href="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
     <link href="<?= $uriHelper->assetUrl("css/style.css") ?>" rel="stylesheet">
-
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 
 </head>

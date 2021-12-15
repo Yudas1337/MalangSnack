@@ -62,11 +62,12 @@ class AuthController implements IForm
      */
     public function filterForm(): void
     {
+        formHelper::isNotNull(["name", "email", "phone_number", "address", "password", "repeat_password"]);
+
         $phone_number = formHelper::changePhoneFormat($this->formHelper->sanitizeInput($_POST['phone_number']));
         $email = $_POST['email'];
         $name = $_POST['name'];
 
-        formHelper::isNotNull(["name", "email", "phone_number", "address", "password", "repeat_password"]);
         formHelper::validString("Nama Lengkap", $name);
         formHelper::maximumLength("Nama lengkap", $name, 50);
         formHelper::minimumLength("Nama lengkap", $name, 3);

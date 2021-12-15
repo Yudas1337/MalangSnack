@@ -36,34 +36,25 @@
 
  <script src="<?= $uriHelper->assetUrl("vendor/global/global.min.js") ?>"></script>
  <script src="<?= $uriHelper->assetUrl("vendor/bootstrap-select/dist/js/bootstrap-select.min.js") ?>"></script>
- <script src="<?= $uriHelper->assetUrl("vendor/chart.js/Chart.bundle.min.js") ?>"></script>
  <script src="<?= $uriHelper->assetUrl("js/custom.min.js") ?>"></script>
  <script src="<?= $uriHelper->assetUrl("js/deznav-init.js") ?>"></script>
 
- <!-- Counter Up -->
- <script src="<?= $uriHelper->assetUrl("vendor/waypoints/jquery.waypoints.min.js") ?>"></script>
- <script src="<?= $uriHelper->assetUrl("vendor/jquery.counterup/jquery.counterup.min.js") ?>"></script>
-
- <!-- Apex Chart -->
- <script src="<?= $uriHelper->assetUrl("vendor/apexchart/apexchart.js") ?>"></script>
-
- <!-- Chart piety plugin files -->
- <script src="<?= $uriHelper->assetUrl("vendor/peity/jquery.peity.min.js") ?>"></script>
 
  <script src="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.js") ?>"></script>
-
+ <script src="<?= $uriHelper->assetUrl("vendor/datatables/js/jquery.dataTables.min.js") ?>"></script>
+ <script src="<?= $uriHelper->assetUrl("js/plugins-init/datatables.init.js") ?>"></script>
 
  </body>
 
  <script>
-     $('.sweetalert').click(function(e) {
+     $('.hapus').click(function(e) {
 
          e.preventDefault();
          const href = $(this).attr('href');
 
          swal({
                  title: "Apa Anda Yakin?",
-                 text: "Saat terhapus , Data yang dihapus tidak bisa kembali lagi!",
+                 text: "Data yang dihapus tidak bisa kembali lagi!",
                  icon: "warning",
                  buttons: {
                      confirm: 'Hapus',
@@ -74,7 +65,7 @@
              .then((willDelete) => {
                  if (willDelete) {
                      swal({
-                         title: "Poof!",
+                         title: "Sukses",
                          text: "Data berhasil Dihapus",
                          icon: "success",
                      }).then((redirect) => {

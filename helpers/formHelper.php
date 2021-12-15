@@ -148,4 +148,16 @@ class formHelper extends Config
             alertHelper::failedActions("$message telah digunakan");
         }
     }
+
+    /**
+     * Check if email or phone is already registered
+     *
+     * @return void
+     */
+    public static function shouldUpload(string $files, string $message): void
+    {
+        if (empty($files)) {
+            alertHelper::failedActions("$message tidak boleh kosong");
+        }
+    }
 }

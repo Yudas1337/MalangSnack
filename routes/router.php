@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . "/../middleware/sessionMiddleware.php";
 /**
  * Define site routing method.
  *
@@ -57,12 +57,13 @@ class Router
      */
     public function dashboardRoute(string $content): void
     {
+        sessionMiddleware::isNotLoggedIn();
         switch ($content) {
             case "main":
                 require_once __DIR__ . $this->loggedIn . "index.php";
                 break;
             case "product":
-                require_once __DIR__ . $this->auth . "index.php";
+                (isset($_GET['menu']) ? $this->productRoute($_GET['menu']) : $this->dashboardRoute("main"));
                 break;
             case "category":
                 (isset($_GET['menu']) ? $this->categoryRoute($_GET['menu']) : $this->dashboardRoute("main"));
@@ -86,6 +87,7 @@ class Router
      */
     public function productRoute(string $content): void
     {
+        sessionMiddleware::adminSession();
         switch ($content) {
         }
     }
@@ -97,6 +99,7 @@ class Router
      */
     public function categoryRoute(string $content): void
     {
+        sessionMiddleware::adminSession();
         switch ($content) {
             case "list":
                 require_once __DIR__ . $this->loggedIn . "kategori/list.php";
