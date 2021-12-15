@@ -1,9 +1,10 @@
 <?php
+require_once __DIR__ . "/../controllers/Controller.php";
 require_once __DIR__ . "/../models/CategoryModel.php";
 require_once __DIR__ . "/../helpers/formHelper.php";
 require_once __DIR__ . "/../interfaces/IForm.php";
 
-class CategoryController implements IForm
+class CategoryController extends Controller implements IForm
 {
     private $redirect = "index.php?page=dashboard&content=category&menu=list";
 

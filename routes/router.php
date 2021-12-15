@@ -68,6 +68,9 @@ class Router
             case "category":
                 (isset($_GET['menu']) ? $this->categoryRoute($_GET['menu']) : $this->dashboardRoute("main"));
                 break;
+            case "supplier":
+                (isset($_GET['menu']) ? $this->supplierRoute($_GET['menu']) : $this->dashboardRoute("main"));
+                break;
             case "profile":
                 require_once __DIR__ . $this->loggedIn . "profile.php";
                 break;
@@ -112,6 +115,32 @@ class Router
                 break;
             case "delete":
                 require_once __DIR__ . $this->loggedIn . "kategori/delete.php";
+                break;
+            default:
+                require_once __DIR__ . $this->errors . "404.php";
+        }
+    }
+
+    /**
+     * Manage supplier menu's route
+     *
+     * @return void
+     */
+    public function supplierRoute(string $content): void
+    {
+        sessionMiddleware::adminSession();
+        switch ($content) {
+            case "list":
+                require_once __DIR__ . $this->loggedIn . "supplier/list.php";
+                break;
+            case "add":
+                require_once __DIR__ . $this->loggedIn . "supplier/add.php";
+                break;
+            case "edit":
+                require_once __DIR__ . $this->loggedIn . "supplier/edit.php";
+                break;
+            case "delete":
+                require_once __DIR__ . $this->loggedIn . "supplier/delete.php";
                 break;
             default:
                 require_once __DIR__ . $this->errors . "404.php";

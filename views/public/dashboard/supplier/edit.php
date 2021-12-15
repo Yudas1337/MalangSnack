@@ -1,11 +1,11 @@
 <?php
 require_once __DIR__ . "/../../../layouts/dashboard/sidebar.php";
-require_once __DIR__ . "/../../../../controllers/CategoryController.php";
+require_once __DIR__ . "/../../../../controllers/SupplierController.php";
 
 if (isset($_GET['id'])) {
-    $category = new CategoryController();
+    $supplier = new SupplierController();
     $id = abs($_GET['id']);
-    $data = $category->getById($id);
+    $data = $supplier->getById($id);
 }
 
 ?>
@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Update Kategori</h4>
+                        <h4 class="card-title">Update Supplier</h4>
                     </div>
                     <div class="card-body">
                         <form method="POST" enctype="multipart/form-data">
@@ -28,19 +28,18 @@ if (isset($_GET['id'])) {
                                 <table id="example" style="min-width: 845px">
                                     <tbody>
                                         <tr>
-                                            <td>Nama Kategori <span class="text-danger">*</span></td>
+                                            <td>Nama <span class="text-danger">*</span></td>
                                             <td><input type="text" placeholder="Keripik" class="form-control" name="name" autocomplete="off" value="<?= $data['name'] ?>"></td>
                                         </tr>
                                         <tr>
-                                            <td>Icon</td>
-                                            <td><img height="100" width="100" src="<?= $uriHelper->baseUrl('assets/images/category/' . $data['icon']) ?>" alt="<?= $data['name']; ?>"></td>
+                                            <td>Alamat <span class="text-danger">*</span></td>
+                                            <td><textarea placeholder="Malang Raya" class="form-control" name="address" autocomplete="off"><?= $data['address'] ?></textarea>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>Icon Kategori <span class="text-danger">*</span></td>
-                                            <td><input type="file" name="icon"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="text-danger">Format: jpg, png, jpeg</span></td>
+                                            <td>Telepon <span class="text-danger">*</span></td>
+                                            <td><input type="number" placeholder="6282257181273" class="form-control" name="phone_number" autocomplete="off" value="<?= $data['phone_number'] ?>"></textarea>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -61,7 +60,7 @@ if (isset($_GET['id'])) {
 require_once __DIR__ . "/../../../layouts/dashboard/footer.php";
 
 if (isset($_POST['submit'])) {
-    $category = new CategoryController();
-    $category->update($id);
+    $supplier = new SupplierController();
+    $supplier->update($id);
 }
 ?>

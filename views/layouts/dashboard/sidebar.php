@@ -36,7 +36,8 @@ require_once __DIR__ . "/../../layouts/dashboard/navbar.php";
                     <li><a href="page-review.html">On Delivery</a></li>
                 </ul>
             </li>
-            <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+            <li class="<?= (isset($_GET['content']) && $_GET['content'] == "supplier" ? "mm-active" : "") ?>">
+                <a href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=supplier&menu=list") ?>" class="ai-icon <?= (isset($_GET['content']) && $_GET['content'] == "supplier" ? "mm-active" : "") ?>" aria-expanded="false">
                     <i class="flaticon-381-user-2"></i>
                     <span class="nav-text">Supplier</span>
                 </a>
