@@ -17,6 +17,11 @@ class Router
         $this->manageRoute();
     }
 
+    /**
+     * Manage site global route
+     *
+     * @return void
+     */
     public function manageRoute(): void
     {
         if (isset($_GET['page'])) {
@@ -34,6 +39,9 @@ class Router
                 case "dashboard":
                     (isset($_GET['content']) ? $this->dashboardRoute($_GET['content']) : $this->dashboardRoute("main"));
                     break;
+                case "403":
+                    require_once __DIR__ . $this->errors . "403.php";
+                    break;
                 default:
                     require_once __DIR__ . $this->errors . "404.php";
             }
@@ -42,6 +50,11 @@ class Router
         }
     }
 
+    /**
+     * Manage dashboard route
+     *
+     * @return void
+     */
     public function dashboardRoute(string $content): void
     {
         switch ($content) {
@@ -51,8 +64,8 @@ class Router
             case "product":
                 require_once __DIR__ . $this->auth . "index.php";
                 break;
-            case "register":
-                require_once __DIR__ . $this->auth . "register.php";
+            case "category":
+                (isset($_GET['menu']) ? $this->categoryRoute($_GET['menu']) : $this->dashboardRoute("main"));
                 break;
             case "profile":
                 require_once __DIR__ . $this->loggedIn . "profile.php";
@@ -60,6 +73,42 @@ class Router
 
             case "logout":
                 require_once __DIR__ . $this->loggedIn . "logout.php";
+                break;
+            default:
+                require_once __DIR__ . $this->errors . "404.php";
+        }
+    }
+
+    /**
+     * Manage product menu's route
+     *
+     * @return void
+     */
+    public function productRoute(string $content): void
+    {
+        switch ($content) {
+        }
+    }
+
+    /**
+     * Manage category menu's route
+     *
+     * @return void
+     */
+    public function categoryRoute(string $content): void
+    {
+        switch ($content) {
+            case "list":
+                require_once __DIR__ . $this->loggedIn . "kategori/list.php";
+                break;
+            case "add":
+                require_once __DIR__ . $this->loggedIn . "kategori/add.php";
+                break;
+            case "edit":
+                require_once __DIR__ . $this->loggedIn . "kategori/edit.php";
+                break;
+            case "delete":
+                require_once __DIR__ . $this->loggedIn . "kategori/delete.php";
                 break;
             default:
                 require_once __DIR__ . $this->errors . "404.php";

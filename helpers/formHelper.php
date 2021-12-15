@@ -67,4 +67,85 @@ class formHelper extends Config
         }
         return $sanitized;
     }
+
+    /**
+     * Check input only characters
+     *
+     * @return string
+     */
+    public static function validString(string $fieldName, string $input): string
+    {
+        $sanitized = preg_match("/^[a-z-A-Z_\s]*$/", $input);
+        if (!$sanitized) {
+            alertHelper::failedActions("$fieldName hanya boleh huruf");
+        }
+        return $sanitized;
+    }
+
+
+    /**
+     * Check input only digits
+     *
+     * @return int
+     */
+    public static function validDigit(int $digit): int
+    {
+        $sanitized = preg_match("/^[0-9]*$/", $digit);
+        if (!$sanitized) {
+            alertHelper::failedActions("$digit hanya boleh angka");
+        }
+        return $sanitized;
+    }
+
+    /**
+     * Check if input should contains <= $lengths
+     *
+     * @return void
+     */
+    public static function maximumLength(string $fieldName, string $input, int $length): void
+    {
+        $sanitized = trim(strlen($input));
+        if ($sanitized >= $length) {
+            alertHelper::failedActions("$fieldName maksimal $length karakter");
+        }
+    }
+
+    /**
+     * Check if input should contains >= $lengths
+     *
+     * @return void
+     */
+    public static function minimumLength(string $fieldName, string $input, int $length): void
+    {
+        $sanitized = trim(strlen($input));
+        if ($sanitized < $length) {
+            alertHelper::failedActions("$fieldName minimal $length karakter");
+        }
+    }
+
+    /**
+     * Check and compare passwords
+     *
+     * @return void
+     */
+    public static function comparePassword(string $input_1, string $input_2): void
+    {
+        $sanitized = strcmp($input_1, $input_2);
+        if ($sanitized != 0) {
+            alertHelper::failedActions("Password tidak cocok");
+        }
+    }
+
+    /**
+     * Check if email or phone is already registered
+     *
+     * @return void
+     */
+    public function checkUnique(string $tableName, string $fieldName, string $value, string $message): void
+    {
+        $sanitized = $this->db->query("SELECT $fieldName FROM $tableName WHERE $fieldName = '$value'")->num_rows;
+        if ($sanitized > 0) {
+            alertHelper::failedActions("$message telah digunakan");
+        }
+    }
 }

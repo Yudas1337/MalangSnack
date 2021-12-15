@@ -9,6 +9,6 @@
 
 interface IAuth
 {
-    public function _doRegister(): void;
+    public function _doRegister($name, $email, $phone_number, $address, $password): void;
     public function _doLogin($email, $password): void;
 }

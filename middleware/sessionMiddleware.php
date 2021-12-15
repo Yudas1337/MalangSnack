@@ -4,7 +4,7 @@ class sessionMiddleware
     public static function adminSession(): void
     {
         if (isset($_SESSION['role']) && $_SESSION['role'] != "admin") {
-            echo "Anda tidak punya hak akses";
+            header('location: index.php?page=403');
             die;
         }
     }
@@ -12,7 +12,7 @@ class sessionMiddleware
     public static function publicSession(): void
     {
         if (!isset($_SESSION['role']) && $_SESSION['role'] != "public") {
-            echo "Anda tidak punya hak akses";
+            header('location: index.php?page=403');
             die;
         }
     }
@@ -20,8 +20,7 @@ class sessionMiddleware
     public static function isNotLoggedIn(): void
     {
         if (!isset($_SESSION['role'])) {
-            echo "Anda tidak punya hak akses";
-            die;
+            header('location: index.php?page=403');
         }
     }
 

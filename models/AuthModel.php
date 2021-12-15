@@ -11,8 +11,13 @@ class AuthModel extends Config implements IAuth
      * @return void
      */
 
-    public function _doRegister(): void
+    public function _doRegister($name, $email, $phone_number, $address, $password): void
     {
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $photo = 'default.png';
+        $role = 'public';
+
+        $this->db->query("INSERT INTO user VALUES(NULL, '$email', '$password', '$name', '$phone_number', '$address', '$photo', '$role', NOW(), NOW())");
     }
 
     /**
