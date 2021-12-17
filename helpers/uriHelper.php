@@ -8,7 +8,7 @@
 
 class uriHelper
 {
-    private $base_url = "http://localhost/web/";
+    private $base_url = "http://localhost/MalangSnack/";
 
     public function baseUrl(string $url = NULL): string
     {

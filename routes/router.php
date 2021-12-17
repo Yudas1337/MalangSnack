@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../middleware/sessionMiddleware.php";
 require_once __DIR__ . "/dashboardRoute.php";
-
+require_once __DIR__ . "/mainRoute.php";
 
 /**
  * Define site routing method.
@@ -32,7 +32,7 @@ class Router
             $page = $_GET['page'];
             switch ($page) {
                 case "main":
-                    require_once __DIR__ . Router::$public . "index.php";
+                    (isset($_GET['content']) ? mainRoute::manageRoute($_GET['content']) : mainRoute::manageRoute("main"));
                     break;
                 case "login":
                     require_once __DIR__ . Router::$auth . "index.php";
