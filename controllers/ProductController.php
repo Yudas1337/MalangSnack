@@ -55,7 +55,7 @@ class ProductController extends Controller implements iForm
     {
         $this->filterForm();
         $this->productModel->update($id);
-        alertHelper::successAndRedirect("Berhasil update kategori", $this->redirect);
+        alertHelper::successAndRedirect("Berhasil update Produk", $this->redirect);
     }
 
     /**

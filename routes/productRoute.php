@@ -14,6 +14,9 @@ class productRoute
             case "list":
                 require_once __DIR__ . Router::$loggedIn . "product/list.php";
                 break;
+            case "detail":
+                require_once __DIR__ . Router::$loggedIn . "product/detail.php";
+                break;
             case "add":
                 require_once __DIR__ . Router::$loggedIn . "product/add.php";
                 break;

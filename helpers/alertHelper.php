@@ -19,6 +19,25 @@ class alertHelper
     }
 
     /**
+     * Show sweetAlert2 popup if actions failed
+     *
+     * @return void
+     */
+    public static function failedAndRedirect(string $str, string $redirect): void
+    {
+        echo "<script>
+        swal({
+            title: 'Gagal',
+            text: '$str',
+            icon: 'error',
+            dangerMode: true,
+        })
+        .then((result) => {
+            window.location = '$redirect'
+        })</script>";
+    }
+
+    /**
      * Show sweetAlert2 popup if actions success
      *
      * @return void

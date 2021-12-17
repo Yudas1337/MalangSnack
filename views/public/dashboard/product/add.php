@@ -102,7 +102,7 @@ $supplier = new SupplierController();
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="submit" class="btn btn-primary btn-block rounded">Tambah Produk</button>
+                                    <button type="submit" name="submit" class="btn btn-primary light btn-block rounded">Tambah Produk</button>
                                 </div>
                             </div>
                         </div>

@@ -15,7 +15,7 @@ $category = new CategoryController();
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">List Kategori</h4>
-                        <a href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=category&menu=add") ?>" class="btn btn-primary btn-md"><i class="fa fa-plus-circle"></i> Tambah Kategori</a>
+                        <a href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=category&menu=add") ?>" class="btn btn-primary light btn-md"><i class="fa fa-plus-circle"></i> Tambah Kategori</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

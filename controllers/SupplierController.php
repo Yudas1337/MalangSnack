@@ -69,9 +69,7 @@ class SupplierController extends Controller
 
     public function delete(int $id): void
     {
-        $redirect = $this->redirect;
         $this->supplierModel->delete($id);
-        header("location: $redirect");
     }
 
     /**

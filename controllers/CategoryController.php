@@ -68,9 +68,7 @@ class CategoryController extends Controller implements IForm
 
     public function delete(int $id): void
     {
-        $redirect = $this->redirect;
         $this->categoryModel->delete($id);
-        header("location: $redirect");
     }
 
     /**

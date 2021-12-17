@@ -7,6 +7,7 @@ require_once __DIR__ . "/../helpers/fileHelper.php";
 class SupplierModel extends Config implements IMain
 {
     private $formHelper;
+    private $redirect = "index.php?page=dashboard&content=supplier&menu=list";
 
     function __construct()
     {
@@ -52,7 +53,13 @@ class SupplierModel extends Config implements IMain
     }
     public function delete(int $id): void
     {
-        $this->db->query("DELETE FROM supplier WHERE id = '$id'");
+        $query = $this->db->query("DELETE FROM supplier WHERE id = '$id'");
+
+        if (!$query) {
+            alertHelper::failedAndRedirect("Data supplier sedang digunakan", $this->redirect);
+        } else {
+            alertHelper::successAndRedirect("Berhasil hapus supplier", $this->redirect);
+        }
     }
 
     public function getById(int $id): array

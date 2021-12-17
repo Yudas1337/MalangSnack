@@ -34,7 +34,7 @@ require_once __DIR__ . "/../../../../controllers/CategoryController.php";
                                     </tbody>
                                 </table>
                                 <div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;">
-                                    <button class="btn btn-primary btn-md" name="submit" type="submit">Tambah Data</button>
+                                    <button class="btn btn-primary light btn-md" name="submit" type="submit">Tambah Data</button>
                                 </div>
                         </form>
                     </div>

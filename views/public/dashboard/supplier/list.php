@@ -15,7 +15,7 @@ $supplier = new SupplierController();
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">List Supplier</h4>
-                        <a href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=supplier&menu=add") ?>" class="btn btn-primary btn-md"><i class="fa fa-plus-circle"></i> Tambah Supplier</a>
+                        <a href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=supplier&menu=add") ?>" class="btn btn-primary light btn-md"><i class="fa fa-plus-circle"></i> Tambah Supplier</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

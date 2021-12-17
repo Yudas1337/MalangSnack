@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
                                     </tbody>
                                 </table>
                                 <div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;">
-                                    <button class="btn btn-warning btn-md" name="submit" type="submit">Update Data</button>
+                                    <button class="btn btn-warning light btn-md" name="submit" type="submit">Update Data</button>
                                 </div>
                         </form>
                     </div>

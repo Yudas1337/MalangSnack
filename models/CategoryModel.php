@@ -9,6 +9,7 @@ class CategoryModel extends Config implements IMain
 {
     private $formHelper;
     private $upload_path = "assets/images/category/";
+    private $redirect = "index.php?page=dashboard&content=category&menu=list";
 
     function __construct()
     {
@@ -62,9 +63,13 @@ class CategoryModel extends Config implements IMain
     public function delete(int $id): void
     {
         $sql = $this->db->query("SELECT * FROM category WHERE id = '$id'")->fetch_object();
-
-        fileHelper::_removeImage($this->upload_path, $sql->icon);
-        $this->db->query("DELETE FROM category WHERE id = '$id'");
+        $query = $this->db->query("DELETE FROM category WHERE id = '$id'");
+        if (!$query) {
+            alertHelper::failedAndRedirect("Data kategori sedang digunakan", $this->redirect);
+        } else {
+            fileHelper::_removeImage($this->upload_path, $sql->icon);
+            alertHelper::successAndRedirect("Berhasil hapus kategori", $this->redirect);
+        }
     }
 
     public function getById(int $id): array

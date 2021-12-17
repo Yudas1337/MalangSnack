@@ -46,41 +46,56 @@ class ProductModel extends Config implements IMain
 
     public function update(int $id): void
     {
-        $name = $this->formHelper->sanitizeInput($_POST['name']);
+        $product_id     = $this->formHelper->sanitizeInput($_POST['product_id']);
+        $category_id    = $this->formHelper->sanitizeInput($_POST['category_id']);
+        $supplier_id    = $this->formHelper->sanitizeInput($_POST['supplier_id']);
+        $name           = $this->formHelper->sanitizeInput($_POST['name']);
+        $merk           = $this->formHelper->sanitizeInput($_POST['merk']);
+        $description    = $this->formHelper->sanitizeInput($_POST['description']);
+        $price          = $this->formHelper->sanitizeInput($_POST['price']);
+        $stock          = $this->formHelper->sanitizeInput($_POST['stock']);
 
-        $sql = $this->db->query("SELECT * FROM category WHERE id = '$id'");
+
+        $sql = $this->db->query("SELECT * FROM product WHERE id = '$id'");
         $fetch = $sql->fetch_object();
         $countRows = $sql->num_rows;
 
-        $icon = $fetch->icon;
+        $thumbnail = $fetch->thumbnail;
 
         if ($countRows > 0) {
-            if (!empty($_FILES['icon']['name'])) {
-                fileHelper::_removeImage($this->upload_path, $icon);
-                $icon = $_FILES['icon'];
-                $icon = fileHelper::_doUpload($this->upload_path, $icon);
+            if (!empty($_FILES['thumbnail']['name'])) {
+                fileHelper::_removeImage($this->upload_path, $thumbnail);
+                $thumbnail = $_FILES['thumbnail'];
+                $thumbnail = fileHelper::_doUpload($this->upload_path, $thumbnail);
             }
 
-            $this->db->query("UPDATE category SET name = '$name', icon = '$icon' WHERE id = '$id'");
+            $this->db->query("UPDATE product SET product_id = '$product_id', category_id ='$category_id', supplier_id = '$supplier_id', name = '$name', merk = '$merk', description = '$description', thumbnail = '$thumbnail', price = '$price', stock = '$stock' WHERE id = '$id'");
         } else {
             alertHelper::failedActions("data tidak ditemukan");
         }
     }
+
     public function delete(int $id): void
     {
-        $sql = $this->db->query("SELECT * FROM category WHERE id = '$id'")->fetch_object();
-
-        fileHelper::_removeImage($this->upload_path, $sql->icon);
-        $this->db->query("DELETE FROM category WHERE id = '$id'");
+        $sql = $this->db->query("SELECT * FROM product WHERE id = '$id'")->fetch_object();
+        fileHelper::_removeImage($this->upload_path, $sql->thumbnail);
+        $this->db->query("DELETE FROM product WHERE id = '$id'");
     }
 
     public function getById(int $id): array
     {
         $arr = array();
-        $sql = $this->db->query("SELECT * FROM category WHERE id = '$id'")->fetch_object();
-        $arr['id']   = $sql->id;
-        $arr['name'] = $sql->name;
-        $arr['icon'] = $sql->icon;
+        $sql = $this->db->query("SELECT * FROM product WHERE id = '$id'")->fetch_object();
+        $arr['id']              = $sql->id;
+        $arr['product_id']      = $sql->product_id;
+        $arr['category_id']     = $sql->category_id;
+        $arr['supplier_id']     = $sql->supplier_id;
+        $arr['name']            = $sql->name;
+        $arr['merk']            = $sql->merk;
+        $arr['description']     = $sql->description;
+        $arr['thumbnail']       = $sql->thumbnail;
+        $arr['price']           = $sql->price;
+        $arr['stock']           = $sql->stock;
 
         return $arr;
     }

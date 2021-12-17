@@ -70,6 +70,26 @@
                  dangerMode: true,
              })
              .then((willDelete) => {
+                 document.location.href = href
+             });
+     });
+
+     $('.hapusProduk').click(function(e) {
+
+         e.preventDefault();
+         const href = $(this).attr('href');
+
+         swal({
+                 title: "Apa Anda Yakin?",
+                 text: "Data yang dihapus tidak bisa kembali lagi!",
+                 icon: "warning",
+                 buttons: {
+                     confirm: 'Hapus',
+                     cancel: 'Batal'
+                 },
+                 dangerMode: true,
+             })
+             .then((willDelete) => {
                  if (willDelete) {
                      swal({
                          title: "Sukses",
