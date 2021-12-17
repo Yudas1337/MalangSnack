@@ -31,7 +31,6 @@
         Scripts
     ***********************************-->
  <!-- Required vendors -->
-
  <script src="<?= $uriHelper->assetUrl("js/jquery.min.js") ?>"></script>
 
  <script src="<?= $uriHelper->assetUrl("vendor/global/global.min.js") ?>"></script>
@@ -44,7 +43,15 @@
  <script src="<?= $uriHelper->assetUrl("vendor/datatables/js/jquery.dataTables.min.js") ?>"></script>
  <script src="<?= $uriHelper->assetUrl("js/plugins-init/datatables.init.js") ?>"></script>
 
- </body>
+ <script src="<?= $uriHelper->assetUrl("vendor/select2/js/select2.full.min.js") ?>"></script>
+
+
+ <script>
+     $(document).ready(function() {
+         $("#category-select").select2();
+         $("#supplier-select").select2();
+     });
+ </script>
 
  <script>
      $('.hapus').click(function(e) {
@@ -103,5 +110,7 @@
              });
      });
  </script>
+ </body>
+
 
  </html>

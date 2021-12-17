@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/../../../layouts/dashboard/sidebar.php";
-require_once __DIR__ . "/../../../../controllers/supplierController.php";
+require_once __DIR__ . "/../../../../controllers/SupplierController.php";
 ?>
 
 <!--**********************************

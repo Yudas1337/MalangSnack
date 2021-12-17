@@ -14,7 +14,7 @@ class CustomerModel extends Config
     {
         $arr = array();
 
-        $sql = $this->db->query("SELECT * FROM user WHERE role = 'public'");
+        $sql = $this->db->query("SELECT * FROM user WHERE role = 'public' ORDER BY id DESC");
         while ($data = $sql->fetch_object()) {
             $arr[] = $data;
         }

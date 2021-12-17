@@ -7,7 +7,6 @@ require_once __DIR__ . "/../helpers/fileHelper.php";
 class SupplierModel extends Config implements IMain
 {
     private $formHelper;
-    private $upload_path = "assets/images/category/";
 
     function __construct()
     {

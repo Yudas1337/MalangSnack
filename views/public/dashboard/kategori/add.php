@@ -26,7 +26,7 @@ require_once __DIR__ . "/../../../../controllers/CategoryController.php";
                                         </tr>
                                         <tr>
                                             <td>Icon Kategori <span class="text-danger">*</span></td>
-                                            <td><input type="file" name="icon"></td>
+                                            <td><input type="file" name="icon" accept="image/*"></td>
                                         </tr>
                                         <tr>
                                             <td><span class="text-danger">Format: jpg, png, jpeg</span></td>

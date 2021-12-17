@@ -26,6 +26,9 @@ $getUser = $user->getUser();
     <link href="<?= $uriHelper->assetUrl("vendor/datatables/css/jquery.dataTables.min.css") ?>" rel="stylesheet">
     <link href="<?= $uriHelper->assetUrl("vendor/bootstrap-select/dist/css/bootstrap-select.min.css") ?>" rel="stylesheet">
     <link href="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
+    <link href="<?= $uriHelper->assetUrl("vendor/select2/css/select2.min.css") ?>" rel="stylesheet">
+
+
     <link href="<?= $uriHelper->assetUrl("css/style.css") ?>" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 

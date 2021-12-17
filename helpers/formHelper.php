@@ -5,6 +5,19 @@ require_once __DIR__ . "/../helpers/alertHelper.php";
 class formHelper extends Config
 {
 
+
+    /**
+     * Convert number to rupiah
+     *
+     * @return string
+     */
+    public static function rupiah(int $input): string
+    {
+
+        $value = "Rp " . number_format($input, 2, ',', '.');
+        return $value;
+    }
+
     /**
      * Change phone number format to 62.
      *
@@ -24,6 +37,7 @@ class formHelper extends Config
                 return '62' . substr(trim($phone_number), 1);
             }
         }
+        return $phone_number;
     }
 
     /**
@@ -158,6 +172,19 @@ class formHelper extends Config
     {
         if (empty($files)) {
             alertHelper::failedActions("$message tidak boleh kosong");
+        }
+    }
+
+    /**
+     * Check if input must contains character and digits combination
+     *
+     * @return void
+     */
+    public static function digitAndChar(string $fieldName, string $input): void
+    {
+        $sanitized = preg_match("/^[0-9a-zA-Z]*[0-9][0-9a-zA-Z]*$/", $input);
+        if (!$sanitized) {
+            alertHelper::failedActions("$fieldName harus kombinasi angka dan huruf");
         }
     }
 }
