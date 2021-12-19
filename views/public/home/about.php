@@ -22,7 +22,7 @@ require_once __DIR__ . "/../../layouts/main/navbar.php";
                     <div class="card-body">
                         <h2 class="text-black main-title mb-3">Malang Snack</h2>
                         <p class="text-black mb-5">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
+                            Malang Snack adalah sebuah toko oleh-oleh khas malang yang menjual berbagai macam bentuk seperti keripik, buah dan juga brownies yang berlokasi di Jl. Kembang Turi No.4a Jatimulyo Kec. Lowokwaru Kota Malang
                         </p>
                         <h2 class="text-black main-title mb-3">Kontak Kami</h2>
                         <p class="text-black mb-4">
@@ -32,7 +32,7 @@ require_once __DIR__ . "/../../layouts/main/navbar.php";
                             <i class="fa fa-phone"></i> +62 822 5718 1297
                         </p>
                         <p class="text-black mb-4">
-                            <i class="fa fa-home"></i> Jl. Welirang No 74. Kepanjen, Kabupaten Malang
+                            <i class="fa fa-home"></i> Jl. Kembang Turi No.4a Jatimulyo Kec. Lowokwaru Kota Malang
                         </p>
                     </div>
                 </div>
