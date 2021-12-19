@@ -13138,7 +13138,6 @@ a.active {
 
 .logo-header img {
   height: auto;
-  width: 100%;
 }
 
 .logo-header span {
@@ -14121,10 +14120,6 @@ a.active {
   height: 5rem;
   margin-left: 30px;
   width: 100px;
-}
-
-.site-header.style-1 .logo-header img {
-  margin-bottom: 5px;
 }
 
 .site-header.style-1 .top-bar {

@@ -15,7 +15,7 @@ class mainRoute
     {
         // sessionMiddleware::isNotLoggedIn();
         switch ($content) {
-            case "main":
+            case "home":
                 require_once __DIR__ . Router::$public . "index.php";
                 break;
             case "product":
@@ -24,22 +24,6 @@ class mainRoute
             case "detail":
                 require_once __DIR__ . Router::$public . "detail.php";
                 break;
-            // case "category":
-            //     (isset($_GET['menu']) ? categoryRoute::manageRoute($_GET['menu']) : dashboardRoute::manageRoute("main"));
-            //     break;
-            // case "supplier":
-            //     (isset($_GET['menu']) ? supplierRoute::manageRoute($_GET['menu']) : dashboardRoute::manageRoute("main"));
-            //     break;
-            // case "customer":
-            //     (isset($_GET['menu']) ? customerRoute::manageRoute($_GET['menu']) : dashboardRoute::manageRoute("main"));
-            //     break;
-            // case "profile":
-            //     require_once __DIR__ . Router::$loggedIn . "profile.php";
-            //     break;
-
-            // case "logout":
-            //     require_once __DIR__ . Router::$loggedIn . "logout.php";
-            //     break;
             default:
                 require_once __DIR__ . Router::$errors . "404.php";
         }
