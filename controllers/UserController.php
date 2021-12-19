@@ -1,8 +1,20 @@
 <?php
 require_once __DIR__ . "/../configs/Config.php";
+require_once __DIR__ . "/../models/UserModel.php";
 
-class UserController extends Config
+class UserController
 {
+    private $userModel;
+
+    function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
+
+    /**
+     * Logout current session.
+     * @return void
+     */
     public static function logout(): void
     {
         $_SESSION['user'] = FALSE;
@@ -13,18 +25,40 @@ class UserController extends Config
         header('location: index.php?page=login');
     }
 
+    /**
+     * Get current user session.
+     * @return array
+     */
     public function getUser(): array
     {
-        $arr = array();
-        $id = $_SESSION['user_id'];
-        $fetch = $this->db->query("SELECT * FROM user WHERE id = '$id'")->fetch_object();
+        return $this->userModel->getCurrentUser();
+    }
 
-        $arr['user_id'] = $fetch->id;
-        $arr['email'] = $fetch->email;
-        $arr['name'] = $fetch->name;
-        $arr['phone_number'] = $fetch->phone_number;
-        $arr['photo'] = $fetch->photo;
+    /**
+     * Change password from the current user session
+     * @return array
+     */
+    public function changePassword(): void
+    {
 
-        return $arr;
+        formHelper::isNotNull(['old_password', 'new_password', 'repeat_password']);
+        formHelper::minimumLength("Password baru", $_POST['new_password'], 6);
+        formHelper::comparePassword($_POST['new_password'], $_POST['repeat_password']);
+
+        $this->userModel->changePassword();
+        alertHelper::successAndRedirect("Berhasil ubah password", "index.php?page=dashboard&content=changePass");
+    }
+
+    /**
+     * Update profile from the current user session
+     * @return array
+     */
+    public function updateProfile(): void
+    {
+        formHelper::isNotNull(['name', 'address']);
+        formHelper::validString('Nama', $_POST['name']);
+
+        $this->userModel->updateProfile();
+        alertHelper::successAndRedirect("Berhasil update profile", "index.php?page=dashboard&content=profile");
     }
 }

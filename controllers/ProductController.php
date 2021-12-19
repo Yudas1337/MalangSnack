@@ -71,6 +71,16 @@ class ProductController extends Controller implements iForm
     }
 
     /**
+     * Count Product
+     * @return void
+     */
+
+    public function countRows(): int
+    {
+        return $this->productModel->countRows();
+    }
+
+    /**
      * Filter Form .
      * @return void
      */

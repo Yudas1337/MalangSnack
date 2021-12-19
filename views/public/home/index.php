@@ -9,19 +9,26 @@ $getCategory = new CategoryController();
         ***********************************-->
 <div class="content-wrapper">
     <!-- row -->
+    <div class="listcontent-area">
+        <div class="owl-carousel item-carousel">
+            <?php foreach ($getCategory->getAll() as $category) : ?>
+                <div class="items">
+                    <div class="card text-left">
+                        <img class="card-img-top" src="holder.js/100px180/" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Title</h4>
+                            <p class="card-text">Body</p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach ?>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="owl-carousel item-carousel">
-                    <?php foreach ($getCategory->getAll() as $category) : ?>
-                        <div class="items">
-                            <div class="item-box">
-                                <img src="<?= $uriHelper->baseUrl('assets/images/category/' . $category->icon) ?>" alt="">
-                                <h5 class="title mb-0"><?= $category->name ?></h5>
-                            </div>
-                        </div>
-                    <?php endforeach ?>
-                </div>
+
             </div>
         </div>
 
