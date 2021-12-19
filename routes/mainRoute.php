@@ -27,6 +27,9 @@ class mainRoute
             case "about":
                 require_once __DIR__ . Router::$public . "about.php";
                 break;
+            case "cart":
+                require_once __DIR__ . Router::$public . "cart.php";
+                break;
             default:
                 require_once __DIR__ . Router::$errors . "404.php";
         }

@@ -21,6 +21,8 @@ require_once __DIR__ . "/../../../helpers/uriHelper.php";
     <link href="<?= $uriHelper->baseUrl('assets/vendor/owl-carousel/owl.carousel.css') ?>" rel="stylesheet">
     <link href="<?= $uriHelper->baseUrl('assets/vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= $uriHelper->baseUrl('assets/vendor/swiper/css/swiper-bundle.css') ?>">
+    <link href="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
+
     <link href="<?= $uriHelper->baseUrl('assets/css/style.css') ?>" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 
