@@ -1,10 +1,10 @@
 <?php
     require_once __DIR__ . "/../../layouts/main/navbar.php";
-    require_once __DIR__ . "/../../../controllers/HomeProductController.php";
-    $main = new HomeProductController();
+    require_once __DIR__ . "/../../../controllers/ProductController.php";
+    $main = new ProductController();
 
     $id = $_GET['id'];
-    $product = $main->getProductDetail($id);
+    $product = $main->getById($id);
 ?>
 
 <!--**********************************
@@ -15,7 +15,7 @@ Content body start
     <div class="row page-titles">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active"><a href="javascript:void(0)">Product</a></li>
-            <li class="breadcrumb-item"><a href="javascript:void(0)"><?= $product->name ?></a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)"><?= $product['name'] ?></a></li>
         </ol>
     </div>
     <div class="row">
@@ -27,7 +27,7 @@ Content body start
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                    <img class="img-fluid" src="<?= $uriHelper->baseUrl('assets/images/product/' . $product->thumbnail) ?>" alt="">
+                                    <img class="img-fluid" src="<?= $uriHelper->baseUrl('assets/images/product/' . $product['thumbnail']) ?>" alt="">
                                 </div>
                             </div>
                         </div>
@@ -36,21 +36,15 @@ Content body start
                             <div class="product-detail-content">
                                 <!--Product details-->
                                 <div class="new-arrival-content pr">
-                                    <h2><?= $product->name ?></h2>
+                                    <h2><?= $product['name'] ?></h2>
                                     <div class="d-table mb-2 mt-5">
-                                        <p class="price float-start d-block">Rp<?= number_format($product->price) ?></p>
+                                        <p class="price float-start d-block">Rp<?= number_format($product['price']) ?></p>
                                     </div>
-                                    <p>Stock: <span class="item"> <?= $product->stock ?> </span>
+                                    <p>Stock: <span class="item"> <?= $product['stock'] ?> </span>
                                     </p>
                                     <p>Product code: <span class="item">0405689</span> </p>
-                                    <p>Brand: <span class="item"><?= $product->merk ?></span></p>
-                                    <p>Product tags:&nbsp;&nbsp;
-                                        <span class="badge badge-success light">bags</span>
-                                        <span class="badge badge-success light">clothes</span>
-                                        <span class="badge badge-success light">shoes</span>
-                                        <span class="badge badge-success light">dresses</span>
-                                    </p>
-                                    <p class="text-content"><?= $product->description ?></p>
+                                    <p>Brand: <span class="item"><?= $product['merk'] ?></span></p>
+                                    <p class="text-content"><?= $product['description'] ?></p>
                                     <div class="d-flex align-items-end flex-wrap mt-4">
                                         <!--Quantity start-->
                                         <div class="col-2 px-0  mb-2 me-3 mr-3">

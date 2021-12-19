@@ -6932,6 +6932,7 @@ a.close.disabled {
 }
 
 .carousel-inner {
+  border-radius: 16px;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -7005,6 +7006,8 @@ a.close.disabled {
 
 .carousel-control-prev,
 .carousel-control-next {
+  background-color: transparent;
+  border: none;
   position: absolute;
   top: 0;
   bottom: 0;
