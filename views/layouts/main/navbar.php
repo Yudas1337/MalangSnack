@@ -41,15 +41,13 @@ require_once __DIR__ . "/../../layouts/main/preload.php";
 					<div class="header-nav navbar-collapse collapse" id="navbarNavDropdown">
 						<ul class="nav navbar-nav navbar navbar-left" style="justify-content: center">
 							<li class="<?= (isset($_GET['content']) && $_GET['content'] == 'home' ? 'active' : '') ?>"><a href="<?= $uriHelper->baseUrl("index.php?page=main&content=home") ?>">
-									Home</a></li>
+									Beranda</a></li>
 							<li class="<?= (isset($_GET['content']) && $_GET['content'] == 'product' ? 'active' : '') ?>"><a href="<?= $uriHelper->baseUrl("index.php?page=main&content=product") ?>">
-									Product</a></li>
+									Produk</a></li>
 							<li class="<?= (isset($_GET['content']) && $_GET['content'] == 'about' ? 'active' : '') ?>"><a href="<?= $uriHelper->baseUrl("index.php?page=main&content=about") ?>">
-									About</a></li>
-							<li class="<?= (isset($_GET['content']) && $_GET['content'] == 'contact' ? 'active' : '') ?>"><a href="<?= $uriHelper->baseUrl("index.php?page=main&content=contact") ?>">
-									Contact</a></li>
+									Tentang kami</a></li>
 							<li class="<?= (isset($_GET['content']) && $_GET['content'] == 'cart' ? 'active' : '') ?>"><a href="<?= $uriHelper->baseUrl("index.php?page=main&content=cart") ?>">
-									Cart</a></li>
+									Keranjang</a></li>
 						</ul>
 					</div>
 				</div>
