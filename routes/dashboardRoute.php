@@ -33,7 +33,9 @@ class dashboardRoute
             case "profile":
                 require_once __DIR__ . Router::$loggedIn . "profile.php";
                 break;
-
+            case "changePass":
+                require_once __DIR__ . Router::$loggedIn . "changePassword.php";
+                break;
             case "logout":
                 require_once __DIR__ . Router::$loggedIn . "logout.php";
                 break;

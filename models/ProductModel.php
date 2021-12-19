@@ -99,4 +99,9 @@ class ProductModel extends Config implements IMain
 
         return $arr;
     }
+
+    public function countRows(): int
+    {
+        return $this->db->query("SELECT * FROM product")->num_rows;
+    }
 }

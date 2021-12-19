@@ -35,19 +35,19 @@ class Router
                     (isset($_GET['content']) ? mainRoute::manageRoute($_GET['content']) : mainRoute::manageRoute("main"));
                     break;
                 case "login":
-                    require_once __DIR__ . Router::$auth . "index.php";
+                    require_once __DIR__ . self::$auth . "index.php";
                     break;
                 case "register":
-                    require_once __DIR__ . Router::$auth . "register.php";
+                    require_once __DIR__ . self::$auth . "register.php";
                     break;
                 case "dashboard":
                     (isset($_GET['content']) ? dashboardRoute::manageRoute($_GET['content']) : dashboardRoute::manageRoute("main"));
                     break;
                 case "403":
-                    require_once __DIR__ . Router::$errors . "403.php";
+                    require_once __DIR__ . self::$errors . "403.php";
                     break;
                 default:
-                    require_once __DIR__ . Router::$errors . "404.php";
+                    require_once __DIR__ . self::$errors . "404.php";
             }
         } else {
             header('location: index.php?page=main');
