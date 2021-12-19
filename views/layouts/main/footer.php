@@ -9,8 +9,9 @@
 		<div class="col-md-2 ml-3">
 			<div class="row d-flex flex-column">
 				<h4 class="title mb-4">Site Link</h4>
-				<a class="mb-3 <?= (isset($_GET['content']) && $_GET['content'] == 'product' || $_GET['content'] == 'detail' ? 'text-primary' : '') ?>" href="<?= $uriHelper->baseUrl("index.php?page=main&content=product") ?>">Produk</a>
 				<a class="mb-3 <?= (isset($_GET['content']) && $_GET['content'] == 'home' ? 'text-primary' : '') ?>" href="<?= $uriHelper->baseUrl("index.php?page=main&content=home") ?>">Beranda</a>
+				<a class="mb-3 <?= (isset($_GET['content']) && $_GET['content'] == 'product' || $_GET['content'] == 'detail' ? 'text-primary' : '') ?>" href="<?= $uriHelper->baseUrl("index.php?page=main&content=product") ?>">Produk</a>
+
 				<a class="mb-3 <?= (isset($_GET['content']) && $_GET['content'] == 'about' ? 'text-primary' : '') ?>" href="<?= $uriHelper->baseUrl("index.php?page=main&content=about") ?>">Tentang Kami</a>
 				<a class="<?= (isset($_GET['content']) && $_GET['content'] == 'cart' ? 'text-primary' : '') ?>" href="<?= $uriHelper->baseUrl("index.php?page=main&content=cart") ?>">Keranjang</a>
 			</div>
