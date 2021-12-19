@@ -12,16 +12,17 @@ $getCategory = new CategoryController();
 <div class="content-wrapper">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xl-5">
-				<div class="card" style="height: 85%;">
-					<div class="card-body">
+			<div class="col-xl-4">
+				<div class="card">
+					<div class="card-body text-center">
 						<img src="<?= $uriHelper->assetUrl('images/logo_delivery.png') ?>" class="img-fluid mb-5" width="50%">
-						<h3 class="title mb-4">Your Order in Progress Check Order</h3>
+						<h3 class="title mb-4">Pesanan anda akan ada di keranjang</h3>
+						<p>Setelah anda klik tambahkan, produk akan tampil di dalam keranjang dan siap untuk checkout.</p>
 						<a href="front-orders_status.html" class="btn btn-warning light btn-rounded">Check Keranjang</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-xl-7">
+			<div class="col-xl-8">
 				<div class="owl-carousel item-carousel">
 					<?php foreach ($getCategory->getAll() as $category) : ?>
 						<div class="items">

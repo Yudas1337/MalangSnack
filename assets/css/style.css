@@ -11716,7 +11716,7 @@ a.text-dark:focus {
   }
 
   .navbar {
-    display: none;
+    display: block;
   }
 
   .badge {
@@ -13819,7 +13819,7 @@ a.active {
 
 @media only screen and (max-width: 991px) {
   .header-nav .nav>li .mega-menu>li>a {
-    display: none;
+    display: block;
   }
 }
 
@@ -13841,7 +13841,7 @@ a.active {
 }
 
 .header-nav .nav>li .mega-menu>li:last-child:after {
-  display: none;
+  display: block;
 }
 
 .header-nav .nav>li .mega-menu>li:hover>a {
