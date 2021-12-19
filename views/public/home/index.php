@@ -98,7 +98,9 @@ $main = new ProductController();
 				</div>
             </div>
 	</div>
+    
 </div>
+
 <!--**********************************
             Content body end
         ***********************************-->
