@@ -62,15 +62,17 @@ $main = new ProductController();
             <div class="row">
                 <?php foreach ($main->getAll() as $product) : ?>
                     <div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-                        <div class="card item-card">
-                            <div class="card-body">
-                                <img src="<?= $uriHelper->baseUrl('assets/images/product/' . $product->thumbnail) ?>" class="img-fluid" alt="">
-                                <div class="info">
-                                    <h5 class="name"><?= $product->name ?></h5>
-                                    <h6 class="mb-0 price"><img src="images/veg.png" alt=""><?= formHelper::rupiah($product->price) ?></h6>
+                        <a href="<?= $uriHelper->baseUrl('index.php?page=main&content=detail&id=' . $product->id) ?>">
+                            <div class="card item-card">
+                                <div class="card-body">
+                                    <img src="<?= $uriHelper->baseUrl('assets/images/product/' . $product->thumbnail) ?>" class="img-fluid" alt="">
+                                    <div class="info">
+                                        <h5 class="name"><?= $product->name ?></h5>
+                                        <h6 class="mb-0 price"><?= formHelper::rupiah($product->price) ?></h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 <?php endforeach ?>
             </div>
@@ -82,17 +84,19 @@ $main = new ProductController();
 
         <div class="col-md-12">
             <div class="row">
-                <?php foreach ($main->getAll() as $product) : ?>
+                <?php foreach ($main->getLatestProduct() as $product) : ?>
                     <div class="col-xl-3 col-xxl-4 col-lg-6 col-md-12 col-sm-6">
-                        <div class="card item-card">
-                            <div class="card-body p-0">
-                                <img src="<?= $uriHelper->baseUrl('assets/images/product/' . $product->thumbnail) ?>" class="img-fluid" alt="">
-                                <div class="info">
-                                    <h5 class="name"><?= $product->name ?></h5>
-                                    <h6 class="mb-0 price"><img src="images/veg.png" alt=""><?= formHelper::rupiah($product->price) ?></h6>
+                        <a href="<?= $uriHelper->baseUrl('index.php?page=main&content=detail&id=' . $product->id) ?>">
+                            <div class="card item-card">
+                                <div class="card-body p-0">
+                                    <img src="<?= $uriHelper->baseUrl('assets/images/product/' . $product->thumbnail) ?>" class="img-fluid" alt="">
+                                    <div class="info">
+                                        <h5 class="name"><?= $product->name ?></h5>
+                                        <h6 class="mb-0 price"><?= formHelper::rupiah($product->price) ?></h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 <?php endforeach ?>
             </div>

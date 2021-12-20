@@ -104,4 +104,16 @@ class ProductModel extends Config implements IMain
     {
         return $this->db->query("SELECT * FROM product")->num_rows;
     }
+
+    public function getLatestProduct(): array
+    {
+        $arr = array();
+
+        $sql = $this->db->query("SELECT * FROM product ORDER BY id DESC LIMIT 9");
+        while ($data = $sql->fetch_object()) {
+            $arr[] = $data;
+        }
+
+        return $arr;
+    }
 }

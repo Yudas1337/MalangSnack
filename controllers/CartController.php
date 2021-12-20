@@ -24,7 +24,7 @@ class CartController
             alertHelper::failedActions("Produk sudah ada di keranjang");
         } else {
             $this->cartModel->add($id);
-            alertHelper::successAndRedirect("Berhasil tambah produk ke keranjang", $this->redirect);
+            alertHelper::successAndRedirect("Berhasil tambah produk dari keranjang", $this->redirect);
         }
     }
 
@@ -35,13 +35,9 @@ class CartController
 
     public function update(int $id): void
     {
-        $id = intval($id);
-        if (isset($_SESSION['cart'][$id])) {
-            alertHelper::failedActions("Produk sudah ada di keranjang");
-        } else {
-            $this->cartModel->add($id);
-            alertHelper::successAndRedirect("Berhasil tambah produk ke keranjang", $this->redirect);
-        }
+        $id = intval(abs($id));
+        $this->cartModel->update($id);
+        alertHelper::successAndRedirect("Berhasil update keranjang", $this->redirect);
     }
 
     /**
@@ -51,13 +47,9 @@ class CartController
 
     public function delete(int $id): void
     {
-        $id = intval($id);
-        if (isset($_SESSION['cart'][$id])) {
-            alertHelper::failedActions("Produk sudah ada di keranjang");
-        } else {
-            $this->cartModel->add($id);
-            alertHelper::successAndRedirect("Berhasil tambah produk ke keranjang", $this->redirect);
-        }
+        $id = intval(abs($id));
+        $this->cartModel->delete($id);
+        alertHelper::successAndRedirect("Berhasil hapus produk ke keranjang", $this->redirect);
     }
 
     /**
@@ -65,14 +57,9 @@ class CartController
      * @return void
      */
 
-    public function destroy(int $id): void
+    public function destroy(): void
     {
-        $id = intval($id);
-        if (isset($_SESSION['cart'][$id])) {
-            alertHelper::failedActions("Produk sudah ada di keranjang");
-        } else {
-            $this->cartModel->add($id);
-            alertHelper::successAndRedirect("Berhasil tambah produk ke keranjang", $this->redirect);
-        }
+        $this->cartModel->destroy();
+        alertHelper::successAndRedirect("Berhasil kosongkan keranjang", $this->redirect);
     }
 }

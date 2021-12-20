@@ -14264,7 +14264,7 @@ a.active {
   }
 
   .site-header.style-1 .navbar-toggler {
-    display: none;
+    display: block;
   }
 
   .site-header.style-1 .sidebar-menu {

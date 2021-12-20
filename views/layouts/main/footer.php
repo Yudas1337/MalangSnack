@@ -52,7 +52,6 @@
 <script src="<?= $uriHelper->baseUrl('assets/vendor/jquery.counterup/jquery.counterup.min.js') ?>"></script>
 
 <script src="<?= $uriHelper->baseUrl('assets/vendor/owl-carousel/owl.carousel.js') ?>"></script>
-<script src="<?= $uriHelper->baseUrl('assets/vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js') ?>"></script>
 
 <script src="<?= $uriHelper->baseUrl('assets/js/custom.js') ?>"></script>
 <script src="<?= $uriHelper->baseUrl('assets/js/deznav-init.js') ?>"></script>
@@ -78,6 +77,10 @@
 			]
 
 		})
+	}
+
+	const opensideBar = () => {
+		$('#sidebarNya').addClass('active');
 	}
 
 	jQuery(document).ready(() => {

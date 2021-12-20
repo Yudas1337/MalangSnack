@@ -1,5 +1,11 @@
 <?php
 require_once __DIR__ . "/../../../helpers/uriHelper.php";
+require_once __DIR__ . "/../../../controllers/UserController.php";
+
+if (isset($_SESSION['user_id'])) {
+    $user = new UserController();
+    $user = $user->getUser();
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +25,6 @@ require_once __DIR__ . "/../../../helpers/uriHelper.php";
     <link rel="icon" type="image/png" sizes="16x16" href="<?= $uriHelper->assetUrl("images/logo_1.png") ?>">
     <link href="<?= $uriHelper->baseUrl('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') ?>" rel="stylesheet">
     <link href="<?= $uriHelper->baseUrl('assets/vendor/owl-carousel/owl.carousel.css') ?>" rel="stylesheet">
-    <link href="<?= $uriHelper->baseUrl('assets/vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') ?>" rel="stylesheet">
-    <link rel="stylesheet" href="<?= $uriHelper->baseUrl('assets/vendor/swiper/css/swiper-bundle.css') ?>">
     <link href="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
 
     <link href="<?= $uriHelper->baseUrl('assets/css/style.css') ?>" rel="stylesheet">

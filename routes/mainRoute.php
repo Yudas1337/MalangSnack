@@ -13,7 +13,7 @@ class mainRoute
 
     public static function manageRoute(string $content): void
     {
-        // sessionMiddleware::isNotLoggedIn();
+
         switch ($content) {
             case "home":
                 require_once __DIR__ . Router::$public . "index.php";
@@ -29,6 +29,10 @@ class mainRoute
                 break;
             case "cart":
                 require_once __DIR__ . Router::$public . "cart.php";
+                break;
+            case "checkout":
+                sessionMiddleware::shouldLogin();
+                require_once __DIR__ . Router::$public . "checkout.php";
                 break;
             default:
                 require_once __DIR__ . Router::$errors . "404.php";

@@ -50,7 +50,7 @@ class Router
                     require_once __DIR__ . self::$errors . "404.php";
             }
         } else {
-            header('location: index.php?page=main');
+            header('location: index.php?page=main&content=home');
         }
     }
 }

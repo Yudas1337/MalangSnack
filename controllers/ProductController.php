@@ -80,6 +80,17 @@ class ProductController extends Controller implements iForm
         return $this->productModel->countRows();
     }
 
+
+    /**
+     * Get the latest product
+     * @return array
+     */
+
+    public function getLatestProduct(): array
+    {
+        return $this->productModel->getLatestProduct();
+    }
+
     /**
      * Filter Form .
      * @return void
