@@ -34,6 +34,10 @@ class mainRoute
                 sessionMiddleware::shouldLogin();
                 require_once __DIR__ . Router::$public . "checkout.php";
                 break;
+            case "finalCheckout":
+                sessionMiddleware::shouldLogin();
+                require_once __DIR__ . Router::$public . "finalCheckout.php";
+                break;
             default:
                 require_once __DIR__ . Router::$errors . "404.php";
         }

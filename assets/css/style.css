@@ -49719,6 +49719,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   color: #fff;
 }
 
-.payment_channels .active {
+.payment_channels .active,
+.courier_channels .active {
   background-color: #DFE2FF;
 }
