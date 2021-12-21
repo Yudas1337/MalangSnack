@@ -88,7 +88,7 @@ require_once __DIR__ . "/../../layouts/main/navbar.php";
                                                         <div class="row" id="listPayments">
                                                             <div class="col-md-4 payment_channels" id="BCA">
                                                                 <div class="card-body">
-                                                                    <div class="card text-center active">
+                                                                    <div class="card text-center ">
                                                                         <img class="card-img-top p-3" src="<?= $uriHelper->assetUrl("images/payments/bca.png") ?>">
                                                                         <div class="card-body">
                                                                             <h4 class="card-title">BCA</h4>
@@ -108,7 +108,7 @@ require_once __DIR__ . "/../../layouts/main/navbar.php";
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4 payment_channels" id="BNI">
+                                                            <div class="col-md-4 payment_channels" id="BRI">
                                                                 <div class="card-body">
                                                                     <div class="card text-center">
                                                                         <img class="card-img-top p-3" src="<?= $uriHelper->assetUrl("images/payments/bri.png") ?>">
@@ -167,11 +167,16 @@ require_once __DIR__ . "/../../layouts/main/footer.php";
         // SmartWizard initialize
         $('#smartwizard').smartWizard();
 
-        $('.payment_channels').click((e) => {
+        $('.payment_channels').on('click', function() {
+
+            $('#listPayments').each(() => {
+                $('.card').removeClass('active');
+            })
 
             let selected = $(this).attr('id');
-            alert(selected);
-
-        });
+            
+            $(this).find('.card').addClass('active');
+            
+        })
     });
 </script>
