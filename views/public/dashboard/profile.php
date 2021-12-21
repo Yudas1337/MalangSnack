@@ -49,6 +49,10 @@ require_once __DIR__ . "/../../../controllers/UserController.php";
                                             <td><input type="text" class="form-control solid" name="name" value="<?= $getUser['name'] ?>" autocomplete="off"></td>
                                         </tr>
                                         <tr>
+                                            <td>Nomor Telepon<span class="text-danger">*</span></td>
+                                            <td><input type="number" class="form-control solid" name="phone_number" value="<?= $getUser['phone_number'] ?>" autocomplete="off"></td>
+                                        </tr>
+                                        <tr>
                                             <td>Alamat<span class="text-danger">*</span></td>
                                             <td><textarea class="form-control solid" name="address" autocomplete="off"><?= $getUser['address'] ?></textarea></td>
                                         </tr>

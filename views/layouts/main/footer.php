@@ -57,6 +57,8 @@
 <script src="<?= $uriHelper->baseUrl('assets/js/deznav-init.js') ?>"></script>
 <script src="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.js") ?>"></script>
 
+<script src="<?= $uriHelper->assetUrl('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') ?>"></script>
+
 <script>
 	function ItemsCarousel() {
 

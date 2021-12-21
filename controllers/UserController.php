@@ -55,8 +55,9 @@ class UserController
      */
     public function updateProfile(): void
     {
-        formHelper::isNotNull(['name', 'address']);
+        formHelper::isNotNull(['name', 'phone_number', 'address']);
         formHelper::validString('Nama', $_POST['name']);
+        formHelper::validDigit($_POST['phone_number']);
 
         $this->userModel->updateProfile();
         alertHelper::successAndRedirect("Berhasil update profile", "index.php?page=dashboard&content=profile");

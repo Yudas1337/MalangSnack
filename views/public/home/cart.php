@@ -32,8 +32,8 @@ $total = 0;
                                             <th class="align-middle pe-7 text-center" colspan="2">Nama Produk</th>
                                             <th class="align-middle">Harga</th>
                                             <th class="align-middle">Jumlah Beli</th>
-                                            <th class="align-middle">Aksi</th>
                                             <th class="align-middle">subTotal</th>
+                                            <th class="align-middle">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody id="orders">

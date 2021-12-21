@@ -56,6 +56,7 @@ class UserModel extends Config
         $id = $_SESSION['user_id'];
         $name           = $this->formHelper->sanitizeInput($_POST['name']);
         $address        = $this->formHelper->sanitizeInput($_POST['address']);
+        $phone_number   = formHelper::changePhoneFormat($this->formHelper->sanitizeInput($_POST['phone_number']));
 
         $sql = $this->db->query("SELECT * FROM user WHERE id = '$id'")->fetch_object();
         $photo = $sql->photo;
@@ -68,6 +69,6 @@ class UserModel extends Config
             $photo = fileHelper::_doUpload($this->upload_path, $photo);
         }
 
-        $this->db->query("UPDATE user SET name = '$name', photo = '$photo', address = '$address' WHERE id = '$id'");
+        $this->db->query("UPDATE user SET name = '$name', photo = '$photo', address = '$address', phone_number = '$phone_number' WHERE id = '$id'");
     }
 }

@@ -27,6 +27,7 @@ if (isset($_SESSION['user_id'])) {
     <link href="<?= $uriHelper->baseUrl('assets/vendor/owl-carousel/owl.carousel.css') ?>" rel="stylesheet">
     <link href="<?= $uriHelper->assetUrl("vendor/sweetalert2/dist/sweetalert2.min.css") ?>" rel="stylesheet">
 
+    <link rel="stylesheet" href="<?= $uriHelper->assetUrl('vendor/jquery-smartwizard/dist/css/smart_wizard.min.css') ?>">
     <link href="<?= $uriHelper->baseUrl('assets/css/style.css') ?>" rel="stylesheet">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 
