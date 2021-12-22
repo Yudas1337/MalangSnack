@@ -28,7 +28,7 @@ class InvoiceModel extends Config
     {
         $arr = array();
 
-        $sql = $this->db->query("SELECT * FROM order_details WHERE orders_id = '$idInvoice'");
+        $sql = $this->db->query("SELECT * FROM order_details od JOIN product p ON od.product_id = p.id  WHERE od.orders_id = '$idInvoice'");
         while ($data = $sql->fetch_object()) {
             $arr[] = $data;
         }

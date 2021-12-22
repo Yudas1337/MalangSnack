@@ -3,8 +3,10 @@ require_once __DIR__ . "/../../../layouts/dashboard/sidebar.php";
 require_once __DIR__ . "/../../../../controllers/InvoiceController.php";
 $invoice = new InvoiceController();
 
-$idInvoice = trim(abs($_GET['id']));
+$idInvoice = trim($_GET['id']);
 $inv = $invoice->getById($idInvoice);
+$detail = $invoice->getDetailOrder($idInvoice);
+
 ?>
 
 <!--**********************************
@@ -71,16 +73,14 @@ $inv = $invoice->getById($idInvoice);
                                                 </thead>
                                                 <tbody>
                                                     <?php $i = 1;
-                                                    foreach ($_SESSION['cart'] as $cart) :
-                                                        $data = $product->getById($cart['id']);
-                                                        $total += ($data['price'] * $cart['qty']) ?>
+                                                    foreach ($detail as $cart) : ?>
                                                         <tr>
                                                             <td class="center"><?= $i; ?></td>
-                                                            <td class="left strong"><?= $data['product_id'] ?></td>
-                                                            <td class="left"><?= $data['name'] ?></td>
-                                                            <td class="right"><?= formHelper::rupiah($data['price'])  ?></td>
-                                                            <td class="center"><?= $cart['qty'] ?></td>
-                                                            <td class="right"><?= formHelper::rupiah($data['price'] * $cart['qty']) ?></td>
+                                                            <td class="left strong"><?= $cart->product_id ?></td>
+                                                            <td class="left"><?= $cart->name ?></td>
+                                                            <td class="right"><?= formHelper::rupiah($cart->price)  ?></td>
+                                                            <td class="center"><?= $cart->qty ?></td>
+                                                            <td class="right"><?= formHelper::rupiah($cart->price * $cart->qty) ?></td>
                                                         </tr>
 
                                                     <?php $i++;
@@ -96,15 +96,15 @@ $inv = $invoice->getById($idInvoice);
 
                                                         <tr>
                                                             <td class="left"><strong>Total</strong></td>
-                                                            <td class="right"><?= formHelper::rupiah($total) ?></td>
+                                                            <td class="right"><?= formHelper::rupiah($inv->amount) ?></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="left"><strong>Biaya Kurir</strong></td>
-                                                            <td class="right"><?= formHelper::rupiah($total * 0.1) ?></td>
+                                                            <td class="right"><?= formHelper::rupiah($inv->delivery_cost) ?></td>
                                                         </tr>
                                                         <tr>
                                                             <td class="left"><strong>Total Bayar</strong></td>
-                                                            <td class="right"><strong><?= formHelper::rupiah($total + ($total * 0.1)) ?></strong>
+                                                            <td class="right"><strong><?= formHelper::rupiah($inv->total_amount) ?></strong>
                                                             </td>
                                                         </tr>
                                                     </tbody>
