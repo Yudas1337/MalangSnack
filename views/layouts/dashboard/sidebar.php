@@ -25,7 +25,7 @@ require_once __DIR__ . "/../../layouts/dashboard/navbar.php";
                         <li class="<?= (isset($_GET['content']) && $_GET['content'] == "category" ? "mm-active" : "") ?>"><a class="<?= (isset($_GET['content']) && $_GET['content'] == "category" ? "mm-active" : "") ?>" href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=category&menu=list") ?>">Kategori</a></li>
                     </ul>
                 </li>
-                <li><a class="ai-icon <?= (isset($_GET['content']) && $_GET['content'] == "orders" ? "mm-active" : "") ?> ?>" href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=order&menu=list") ?>" aria-expanded="false">
+                <li class="<?= (isset($_GET['content']) && $_GET['content'] == "order" ? "mm-active" : "") ?>"><a class="ai-icon <?= (isset($_GET['content']) && $_GET['content'] == "order" ? "mm-active" : "") ?>" href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=order&menu=list") ?>" aria-expanded="false">
                         <i class="flaticon-381-bookmark-1"></i>
                         <span class="nav-text">Order</span>
                     </a>
