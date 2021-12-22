@@ -16,16 +16,10 @@ class orderRoute
                 require_once __DIR__ . Router::$loggedIn . "order/list.php";
                 break;
             case "detail":
-                require_once __DIR__ . Router::$loggedIn . "product/detail.php";
+                require_once __DIR__ . Router::$loggedIn . "order/detail.php";
                 break;
-            case "add":
-                require_once __DIR__ . Router::$loggedIn . "product/add.php";
-                break;
-            case "edit":
-                require_once __DIR__ . Router::$loggedIn . "product/edit.php";
-                break;
-            case "delete":
-                require_once __DIR__ . Router::$loggedIn . "product/delete.php";
+            case "update":
+                require_once __DIR__ . Router::$loggedIn . "order/update.php";
                 break;
             default:
                 require_once __DIR__ . Router::$errors . "404.php";

@@ -258,6 +258,13 @@ $total = 0;
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="row mb-5">
+                                                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
+                                                                <h6>Keterangan:</h6>
+                                                                <div>Metode Pembayaran: <strong id="checkout_payment">Payment Method</strong> </div>
+                                                                <div>Ekspedisi: <strong id="checkout_delivery">Delivery</strong></div>
+                                                            </div>
+                                                        </div>
                                                         <div class="table-responsive">
                                                             <table class="table table-striped">
                                                                 <thead>
@@ -379,6 +386,7 @@ require_once __DIR__ . "/../../layouts/main/footer.php";
                 $('.card').removeClass('active');
             })
             payments = $(this).attr('id');
+            $('#checkout_payment').text(payments);
             $(this).find('.card').addClass('active');
 
         })
@@ -388,6 +396,7 @@ require_once __DIR__ . "/../../layouts/main/footer.php";
                 $('.card').removeClass('active');
             })
             couriers = $(this).attr('id');
+            $('#checkout_delivery').text(couriers);
             $(this).find('.card').addClass('active');
         })
 
