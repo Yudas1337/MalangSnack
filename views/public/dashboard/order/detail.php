@@ -30,7 +30,7 @@ if (isset($_GET['invoice_id'])) {
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header"> Tagihan <span class="float-right <?= $color ?>">
+                    <div class="card-header"> Tagihan: <?= $data['invoice_id'] ?> <span class="float-right <?= $color ?>">
                             <strong>Status:</strong> <?= $data['status_paid'] ?></span> </div>
                     <div class="card-body">
                         <div class="row mb-5">

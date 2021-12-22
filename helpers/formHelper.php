@@ -164,7 +164,7 @@ class formHelper extends Config
     }
 
     /**
-     * Check if email or phone is already registered
+     * Should upload files
      *
      * @return void
      */

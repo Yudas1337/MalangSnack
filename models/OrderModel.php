@@ -73,9 +73,65 @@ class OrderModel extends Config
         return $arr;
     }
 
+    /**
+     * update invoice
+     * @return void
+     */
     public function updateInvoice(string $invoice_id): void
     {
         $status_paid = $this->formHelper->sanitizeInput($_POST['status_paid']);
         $this->db->query("UPDATE orders SET status_paid = '$status_paid', paid_at = NOW() WHERE invoice_id = '$invoice_id'");
+    }
+
+
+    /**
+     * Get revenue
+     * @return int
+     */
+    public function countRevenue(): int
+    {
+        $sql = $this->db->query("SELECT SUM(o.total_amount) AS revenue FROM orders o")->fetch_object();
+
+        return $sql->revenue;
+    }
+
+    /**
+     * count orders
+     * @return int
+     */
+    public function countRows(): int
+    {
+        return $this->db->query("SELECT * FROM orders")->num_rows;
+    }
+
+    /**
+     * filter orders
+     * @return array
+     */
+    public function getByFilter(string $filter): array
+    {
+        $arr = array();
+
+        $sql = $this->db->query("SELECT * FROM orders WHERE status_paid = '$filter'");
+        while ($data = $sql->fetch_object()) {
+            $arr[] = $data;
+        }
+
+        return $arr;
+    }
+
+    /**
+     * filter orders
+     * @return array
+     */
+    public function getNewOrder(): array
+    {
+        $arr = array();
+        $sql = $this->db->query("SELECT DISTINCT od.product_id, o.*, u.*,od.*, o.name AS orderName, SUM(od.qty) AS buyTotal FROM orders o JOIN user u ON o.user_id = u.id JOIN order_details od ON o.invoice_id = od.orders_id WHERE status_paid IN('PENDING','PROGRESS') GROUP BY u.id LIMIT 5");
+        while ($data = $sql->fetch_object()) {
+            $arr[] = $data;
+        }
+
+        return $arr;
     }
 }

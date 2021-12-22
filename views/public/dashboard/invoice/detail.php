@@ -30,9 +30,9 @@ if ($status == 'PENDING') {
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        Detail Tagihan
+                        Detail Tagihan : <?= $inv->invoice_id ?>
                         <span class="float-right <?= $color ?>">
-                            <strong>Status:</strong> <?= $inv->status_paid ?></span> 
+                            <strong>Status:</strong> <?= $inv->status_paid ?></span>
                     </div>
                     <div class="card-body">
                         <div class="row mb-5">
@@ -118,9 +118,11 @@ if ($status == 'PENDING') {
                                     </tbody>
                                 </table>
                             </div>
-                            <?php if($inv->status_paid == "PENDING"): ?>
+                            <?php if ($inv->status_paid == "PENDING") : ?>
                                 <div class="col-md-12 text-right">
-                                    <button class="btn btn-success">Upload Bukti</button>
+                                    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModal">
+                                        Upload Bukti Pembayaran
+                                    </button>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -134,4 +136,36 @@ if ($status == 'PENDING') {
 
 <?php
 require_once __DIR__ . "/../../../layouts/dashboard/footer.php";
+if (isset($_POST['upload'])) {
+    $invoice->uploadTransfer($idInvoice);
+}
 ?>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Upload bukti pembayaran anda</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="file" name="transfer_verify">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <span class="text-danger">Format file : JPG, PNG, JPEG</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="upload" class="btn btn-primary btn-sm light">Upload</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

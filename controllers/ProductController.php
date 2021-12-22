@@ -72,7 +72,7 @@ class ProductController extends Controller implements iForm
 
     /**
      * Count Product
-     * @return void
+     * @return int
      */
 
     public function countRows(): int

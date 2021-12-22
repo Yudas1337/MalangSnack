@@ -1,7 +1,16 @@
 <?php
 require_once __DIR__ . "/../../../layouts/dashboard/sidebar.php";
 require_once __DIR__ . "/../../../../controllers/OrderController.php";
-$order = new OrderController();
+if (isset($_GET['filter'])) {
+    $order = new OrderController();
+
+    if ($_GET['filter'] == 'all') {
+        $data = $order->getAll();
+    } else {
+        $filter = trim($_GET['filter']);
+        $data = $order->getByFilter($filter);
+    }
+}
 ?>
 
 <!--**********************************
@@ -11,7 +20,29 @@ $order = new OrderController();
     <!-- row -->
     <div class="container-fluid">
         <div class="row" id="masonry">
-            <?php foreach ($order->getAll() as $list) :
+            <div class="col-xl-12 col-lg-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Filter</h4>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form method="POST">
+                                    <select onchange="filterPaid()" class="form-control" id="filter">
+                                        <option value="all" <?= (isset($_GET['filter']) && $_GET['filter'] == 'all' ? 'selected' : '') ?>>All</option>
+                                        <option value="PENDING" <?= (isset($_GET['filter']) && $_GET['filter'] == 'PENDING' ? 'selected' : '') ?>>PENDING</option>
+                                        <option value="PROGRESS" <?= (isset($_GET['filter']) && $_GET['filter'] == 'PROGRESS' ? 'selected' : '') ?>>PROGRESS</option>
+                                        <option value="FAILED" <?= (isset($_GET['filter']) && $_GET['filter'] == 'FAILED' ? 'selected' : '') ?>>FAILED</option>
+                                        <option value="PAID" <?= (isset($_GET['filter']) && $_GET['filter'] == 'PAID' ? 'selected' : '') ?>>PAID</option>
+                                    </select>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <?php foreach ($data as $list) :
                 $status = $list->status_paid;
                 if ($status == 'PENDING') {
                     $color = 'bg-warning';
@@ -58,3 +89,10 @@ $order = new OrderController();
 <?php
 require_once __DIR__ . "/../../../layouts/dashboard/footer.php";
 ?>
+
+<script>
+    const filterPaid = () => {
+        const filter = $('#filter').val();
+        window.location.href = 'index.php?page=dashboard&content=order&menu=list&filter=' + filter
+    }
+</script>
