@@ -15,7 +15,7 @@ if (isset($_GET['invoice_id'])) {
     } elseif ($status == 'FAILED') {
         $color = 'badge badge-danger';
     } elseif ($status == 'PROGRESS') {
-        $color = 'badge badge-primary';
+        $color = 'badge badge-secondary';
     }
 }
 
@@ -118,7 +118,10 @@ if (isset($_GET['invoice_id'])) {
                         </div>
                     </div>
                     <?php if ($status == 'PENDING') : ?>
-                        <div class="card-footer"> <a target="_blank" href="<?= $uriHelper->assetUrl('images/transfer/' . $data['transfer_verify']) ?>" class="btn btn-lg btn-primary light">Cek Bukti Pembayaran</a></div>
+                        <div class="card-footer"> <a target="_blank" href="<?= $uriHelper->assetUrl('images/transfer/' . $data['transfer_verify']) ?>" class="btn btn-lg btn-primary light">Cek Bukti Pembayaran</a> <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+                                Verifikasi Tagihan
+                            </button>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -128,4 +131,37 @@ if (isset($_GET['invoice_id'])) {
 
 <?php
 require_once __DIR__ . "/../../../layouts/dashboard/footer.php";
+
+if (isset($_POST['update'])) {
+    $order->updateInvoice($id);
+}
+
 ?>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="POST">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Apa anda yakin?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="radio" name="status_paid" value="PAID"> Valid
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" name="status_paid" value="FAILED"> Tidak Valid
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="update" class="btn btn-primary btn-sm light">Update tagihan</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

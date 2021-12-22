@@ -20,7 +20,7 @@ $order = new OrderController();
                 } elseif ($status == 'FAILED') {
                     $color = 'bg-danger';
                 } elseif ($status == 'PROGRESS') {
-                    $color = 'bg-primary';
+                    $color = 'bg-secondary';
                 }
                 $items = $order->getOrderDetails($list->invoice_id); ?>
                 <a href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=order&menu=detail&invoice_id=" . $list->invoice_id) ?>">
