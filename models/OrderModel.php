@@ -1,11 +1,15 @@
 <?php
 require_once __DIR__ . "/../configs/Config.php";
+require_once __DIR__ . "/../helpers/formHelper.php";
 
 class OrderModel extends Config
 {
+    private $formHelper;
+
     function __construct()
     {
         parent::__construct();
+        $this->formHelper = new formHelper();
     }
 
 
@@ -33,7 +37,7 @@ class OrderModel extends Config
     {
         $arr = array();
 
-        $sql = $this->db->query("SELECT * FROM order_details od JOIN product p ON od.product_id = p.id  WHERE od.orders_id = '$invoice_id'");
+        $sql = $this->db->query("SELECT * FROM order_details od JOIN product p ON od.product_id = p.id WHERE od.orders_id = '$invoice_id'");
         while ($data = $sql->fetch_object()) {
             $arr[] = $data;
         }
@@ -67,5 +71,11 @@ class OrderModel extends Config
         $arr['updated_at']      = $sql->updated_at;
 
         return $arr;
+    }
+
+    public function updateInvoice(string $invoice_id): void
+    {
+        $status_paid = $this->formHelper->sanitizeInput($_POST['status_paid']);
+        $this->db->query("UPDATE orders SET status_paid = '$status_paid', paid_at = NOW() WHERE invoice_id = '$invoice_id'");
     }
 }
