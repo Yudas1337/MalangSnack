@@ -42,7 +42,7 @@ require_once __DIR__ . "/../../layouts/dashboard/navbar.php";
                     </a>
                 </li>
             <?php elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'public') : ?>
-                <li><a class="ai-icon <?= (isset($_GET['content']) && $_GET['content'] == "invoice" ? "mm-active" : "") ?> ?>" href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=invoice&menu=list") ?>" aria-expanded="false">
+                <li class="<?= (isset($_GET['content']) && $_GET['content'] == "invoice" ? "mm-active" : "") ?>"><a class="ai-icon <?= (isset($_GET['content']) && $_GET['content'] == "invoice" ? "mm-active" : "") ?>" href="<?= $uriHelper->baseUrl("index.php?page=dashboard&content=invoice&menu=list") ?>" aria-expanded="false">
                         <i class="flaticon-381-bookmark-1"></i>
                         <span class="nav-text">Tagihan</span>
                     </a>

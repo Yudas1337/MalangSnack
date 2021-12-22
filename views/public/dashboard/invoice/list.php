@@ -46,7 +46,7 @@ $invoice = new InvoiceController();
                                                         case 'FAILED':
                                                             echo '<span class="badge badge-danger">' . $inv->status_paid . '</span>';
                                                             break;
-                                                        case 'SUCCESS':
+                                                        case 'PAID':
                                                             echo '<span class="badge badge-success">' . $inv->status_paid . '</span>';
                                                             break;
                                                         default:
