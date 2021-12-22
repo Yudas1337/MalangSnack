@@ -63,4 +63,16 @@ class sessionMiddleware
             header("location: index.php?page=login");
         }
     }
+
+    /**
+     * Manage if cart is empty
+     *
+     * @return void
+     */
+    public static function cartEmpty(): void
+    {
+        if (!isset($_SESSION['cart'])) {
+            header("location: index.php?page=main&content=cart");
+        }
+    }
 }

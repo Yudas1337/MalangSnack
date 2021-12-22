@@ -1,8 +1,4 @@
 <?php
-if (!isset($_SESSION['cart'])) {
-    echo "Keranjang masih kosong. anda tidak bisa checkout";
-    exit;
-}
 require_once __DIR__ . "/../../layouts/main/navbar.php";
 require_once __DIR__ . "/../../../controllers/ProductController.php";
 

@@ -32,10 +32,12 @@ class mainRoute
                 break;
             case "checkout":
                 sessionMiddleware::shouldLogin();
+                sessionMiddleware::cartEmpty();
                 require_once __DIR__ . Router::$public . "checkout.php";
                 break;
             case "finalCheckout":
                 sessionMiddleware::shouldLogin();
+                sessionMiddleware::cartEmpty();
                 require_once __DIR__ . Router::$public . "finalCheckout.php";
                 break;
             default:

@@ -3,6 +3,7 @@ require_once __DIR__ . "/productRoute.php";
 require_once __DIR__ . "/categoryRoute.php";
 require_once __DIR__ . "/supplierRoute.php";
 require_once __DIR__ . "/customerRoute.php";
+require_once __DIR__ . "/orderRoute.php";
 class dashboardRoute
 {
     /**
@@ -20,6 +21,9 @@ class dashboardRoute
                 break;
             case "product":
                 (isset($_GET['menu']) ? productRoute::manageRoute($_GET['menu']) : dashboardRoute::manageRoute("main"));
+                break;
+            case "order":
+                (isset($_GET['menu']) ? orderRoute::manageRoute($_GET['menu']) : dashboardRoute::manageRoute("main"));
                 break;
             case "category":
                 (isset($_GET['menu']) ? categoryRoute::manageRoute($_GET['menu']) : dashboardRoute::manageRoute("main"));

@@ -134,5 +134,8 @@ class CartModel extends Config implements IForm
     public function filterForm(): void
     {
         $this->formHelper->isNotNull(['qty']);
+        if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+            alertHelper::failedActions("Admin tidak bisa berbelanja");
+        }
     }
 }

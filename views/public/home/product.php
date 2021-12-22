@@ -8,12 +8,12 @@ $getCategory = new CategoryController();
 
 $getProduct = $main->getAll();
 
-if(isset($_POST['search'])){
+if (isset($_POST['search'])) {
 	$searchController = new SearchController();
 	$getProduct = $searchController->search($_POST['search']);
 }
 
-if(isset($_GET['filter'])){
+if (isset($_GET['filter'])) {
 	$searchController = new SearchController();
 	$getProduct = $searchController->filter($_GET['filter']);
 }
@@ -49,7 +49,7 @@ if(isset($_GET['filter'])){
 					<?php endforeach ?>
 				</div>
 				<form action="<?= $uriHelper->baseUrl('index.php?page=main&content=product') ?>" method="POST" class="input-group search-area style-1 mb-4">
-					<input type="text" name="search" class="form-control" value="<?= (isset($_POST['search']) ? $_POST['search'] : '') ?>" placeholder="Search here...">
+					<input autocomplete="off" type="text" name="search" class="form-control" value="<?= (isset($_POST['search']) ? $_POST['search'] : '') ?>" placeholder="Search here...">
 					<div class="input-group-append">
 						<button class=" btn btn-success btn-rounded">Search</button>
 					</div>
