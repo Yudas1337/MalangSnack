@@ -210,7 +210,7 @@ $product = new ProductController();
                     </div>
                 </div>
             <?php elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'public'): ?>
-                <h3>Selamat Datang</h3>
+                <h3>Selamat Datang, <?= $getUser['name'] ?></h3>
             <?php endif; ?>
         </div>
        
