@@ -116,4 +116,16 @@ class ProductModel extends Config implements IMain
 
         return $arr;
     }
+
+    public function getFavoriteProduct(): array
+    {
+        $arr = array();
+
+        $sql = $this->db->query("SELECT DISTINCT od.product_id, p.*, SUM(od.qty) AS favorit FROM order_details od JOIN product p ON od.product_id = p.id GROUP BY p.id ORDER BY favorit DESC LIMIT 9");
+        while ($data = $sql->fetch_object()) {
+            $arr[] = $data;
+        }
+
+        return $arr;
+    }
 }

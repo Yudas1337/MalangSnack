@@ -117,7 +117,7 @@ if (isset($_GET['invoice_id'])) {
                             </div>
                         </div>
                     </div>
-                    <?php if ($status == 'PENDING') : ?>
+                    <?php if ($status == 'PROGRESS') : ?>
                         <div class="card-footer"> <a target="_blank" href="<?= $uriHelper->assetUrl('images/transfer/' . $data['transfer_verify']) ?>" class="btn btn-lg btn-primary light">Cek Bukti Pembayaran</a> <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
                                 Verifikasi Tagihan
                             </button>

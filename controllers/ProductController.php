@@ -92,6 +92,15 @@ class ProductController extends Controller implements iForm
     }
 
     /**
+     * Get the favorite product
+     * @return array
+     */
+    public function getFavoriteProduct(): array
+    {
+        return $this->productModel->getFavoriteProduct();
+    }
+
+    /**
      * Filter Form .
      * @return void
      */

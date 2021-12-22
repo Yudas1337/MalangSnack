@@ -7,7 +7,7 @@
     Nav header start
 ***********************************-->
     <div class="nav-header">
-        <a href="index.html" class="brand-logo">
+        <a href="<?= $uriHelper->baseUrl('index.php?page=main&content=home') ?>" class="brand-logo">
             <img class="logo-abbr" src="<?= $uriHelper->assetUrl("images/logo_1.png") ?>" alt="MalangSnack">
             <img class="logo-compact" src="<?= $uriHelper->assetUrl("images/logo_1.png") ?>" alt="MalangSnack">
             <img class="brand-title" src="<?= $uriHelper->assetUrl("images/logo_text.png") ?>" alt="MalangSnack">
