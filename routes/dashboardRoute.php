@@ -4,6 +4,7 @@ require_once __DIR__ . "/categoryRoute.php";
 require_once __DIR__ . "/supplierRoute.php";
 require_once __DIR__ . "/customerRoute.php";
 require_once __DIR__ . "/orderRoute.php";
+require_once __DIR__ . "/invoiceRoute.php";
 class dashboardRoute
 {
     /**
@@ -33,6 +34,9 @@ class dashboardRoute
                 break;
             case "customer":
                 (isset($_GET['menu']) ? customerRoute::manageRoute($_GET['menu']) : dashboardRoute::manageRoute("main"));
+                break;
+            case "invoice":
+                (isset($_GET['menu']) ? invoiceRoute::manageRoute($_GET['menu']) : dashboardRoute::manageRoute("main"));
                 break;
             case "profile":
                 require_once __DIR__ . Router::$loggedIn . "profile.php";

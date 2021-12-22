@@ -438,7 +438,7 @@ require_once __DIR__ . "/../../layouts/main/footer.php";
                             })
                             .then((willCheckout) => {
                                 if (willCheckout) {
-                                    document.location.href = 'index.php?page=dashboard&content=invoice&id=' + obj.data.id;
+                                    document.location.href = 'index.php?page=dashboard&content=invoice&menu=detail&id=' + obj.data.id;
                                 }
                             });
                     },
