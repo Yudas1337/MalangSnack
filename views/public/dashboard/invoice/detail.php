@@ -65,6 +65,7 @@ if ($status == 'PENDING') {
                                 <h6>Keterangan:</h6>
                                 <div>Metode Pembayaran: <strong><?= $inv->payment_method ?></strong> </div>
                                 <div>Ekspedisi: <strong><?= $inv->delivery ?></strong></div>
+                                <div class="mt-3"><a target="_blank" class="text-primary" href="<?= $uriHelper->baseUrl('index.php?page=main&content=payment&filter=' . $inv->payment_method) ?>">Lihat cara pembayaran</a></div>
                             </div>
                         </div>
                         <div class="table-responsive">

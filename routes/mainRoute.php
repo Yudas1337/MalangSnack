@@ -3,6 +3,8 @@ require_once __DIR__ . "/productRoute.php";
 require_once __DIR__ . "/categoryRoute.php";
 require_once __DIR__ . "/supplierRoute.php";
 require_once __DIR__ . "/customerRoute.php";
+require_once __DIR__ . "/paymentRoute.php";
+
 class mainRoute
 {
     /**
@@ -39,6 +41,9 @@ class mainRoute
                 sessionMiddleware::shouldLogin();
                 sessionMiddleware::cartEmpty();
                 require_once __DIR__ . Router::$public . "finalCheckout.php";
+                break;
+            case "payment":
+                (isset($_GET['content']) ? paymentRoute::manageRoute($_GET['filter']) : mainRoute::manageRoute("main"));
                 break;
             default:
                 require_once __DIR__ . Router::$errors . "404.php";
